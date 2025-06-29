@@ -1,0 +1,2437 @@
+{
+  "name": "biosscope-bcodmo-datasets",
+  "title": "Bermuda Institute of Ocean Sciences Simons Collaboration on Ocean Processes and Ecology",
+  "description": "BIOSSCOPE datasets from BCO-DMO",
+  "profile": "data-package",
+  "sources": [
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/853440",
+      "title": "ZooSCAN images of zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+      "doi": "10.26008/1912/bco-dmo.853440.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/854077",
+      "title": "ZooSCAN biovolume to biomass from imaged zooplankton collected during MOCNESS tows during various R/V Atlantic Explorer cruises and small boat deployments in the Sargasso Sea betwen 2016 to 2019",
+      "doi": "10.26008/1912/bco-dmo.854077.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/857891",
+      "title": "ZooSCAN output from of imaged zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+      "doi": "10.26008/1912/bco-dmo.857891.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/861266",
+      "title": "BIOS-SCOPE survey biogeochemical data as collected on Atlantic Explorer cruises (AE1614, AE1712, AE1819, AE1916) from 2016 through 2019",
+      "doi": "10.26008/1912/bco-dmo.861266.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/920443",
+      "title": "Chemical analyses of size-fractionated particle samples collected during the BIOS-SCOPE cruise AE1819 in the Sargasso Sea in July 2018",
+      "doi": "10.26008/1912/bco-dmo.920443.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/964684",
+      "title": "Size fractionated Amino Acid data collected in the Sargasso Sea during BIOS-SCOPE cruises AE2114 and AE2123 in August and November 2021",
+      "doi": "10.26008/1912/bco-dmo.964684.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/964801",
+      "title": "Size fractionated carbohydrate data collected in the Sargasso Sea during BIOS-SCOPE cruises AE2114 and AE2123 in August and November 2021",
+      "doi": "10.26008/1912/bco-dmo.964801.1"
+    },
+    {
+      "path": "http://lod.bco-dmo.org/id/dataset/964826",
+      "title": "Size Fractionated Particulate Organic Carbon (POC) and Particulate Organic Nitrogen (PON) collected during BIOS-SCOPE cruises (2018-2023) aboard the R/V Atlantic Explorer",
+      "doi": "10.26008/1912/bco-dmo.964826.1"
+    }
+  ],
+  "created": "2025-06-29T15:04:06.865159Z",
+  "resources": [
+    {
+      "name": "zooscan_images_bats_ae1614",
+      "type": "file",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/853440",
+          "title": "ZooSCAN images of zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+          "doi": "10.26008/1912/bco-dmo.853440.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/data/305/Zooplankton_Gradients/853440/1/data/ZooSCAN_Images_BATS_AE1614.tar.gz",
+      "scheme": "https",
+      "format": "tar",
+      "compression": "gz",
+      "encoding": "utf-8",
+      "bcodmo:parameters": []
+    },
+    {
+      "name": "zooscan_images_bats_ae1712",
+      "type": "file",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/853440",
+          "title": "ZooSCAN images of zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+          "doi": "10.26008/1912/bco-dmo.853440.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/data/305/Zooplankton_Gradients/853440/1/data/ZooSCAN_Images_BATS_AE1712.tar.gz",
+      "scheme": "https",
+      "format": "tar",
+      "compression": "gz",
+      "encoding": "utf-8",
+      "bcodmo:parameters": []
+    },
+    {
+      "name": "zooscan_images_bats_ae1819",
+      "type": "file",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/853440",
+          "title": "ZooSCAN images of zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+          "doi": "10.26008/1912/bco-dmo.853440.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/data/305/Zooplankton_Gradients/853440/1/data/ZooSCAN_Images_BATS_AE1819.tar.gz",
+      "scheme": "https",
+      "format": "tar",
+      "compression": "gz",
+      "encoding": "cp1252",
+      "bcodmo:parameters": []
+    },
+    {
+      "name": "zooscan_images_bats_ae1830",
+      "type": "file",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/853440",
+          "title": "ZooSCAN images of zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+          "doi": "10.26008/1912/bco-dmo.853440.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/data/305/Zooplankton_Gradients/853440/1/data/ZooSCAN_Images_BATS_AE1830.tar.gz",
+      "scheme": "https",
+      "format": "tar",
+      "compression": "gz",
+      "encoding": "cp1252",
+      "bcodmo:parameters": []
+    },
+    {
+      "name": "zooscan_bats_biovolume",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/854077",
+          "title": "ZooSCAN biovolume to biomass from imaged zooplankton collected during MOCNESS tows during various R/V Atlantic Explorer cruises and small boat deployments in the Sargasso Sea betwen 2016 to 2019",
+          "doi": "10.26008/1912/bco-dmo.854077.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/3YY3gVnum7AlR0/zooscan_bats_biovolume.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:cec0f849ce62cdaefded9cd7732049df6bf88ebf8d6eda2392be2ee56817451d",
+      "bytes": 109580,
+      "fields": 15,
+      "rows": 917,
+      "schema": {
+        "fields": [
+          {
+            "name": "object_id",
+            "type": "string"
+          },
+          {
+            "name": "taxa",
+            "type": "string"
+          },
+          {
+            "name": "object_major",
+            "type": "number"
+          },
+          {
+            "name": "object_minor",
+            "type": "number"
+          },
+          {
+            "name": "object_feret",
+            "type": "number"
+          },
+          {
+            "name": "object_esd",
+            "type": "number"
+          },
+          {
+            "name": "object_area_exc",
+            "type": "integer"
+          },
+          {
+            "name": "object_major_mm",
+            "type": "number"
+          },
+          {
+            "name": "object_minor_mm",
+            "type": "number"
+          },
+          {
+            "name": "object_feret_mm",
+            "type": "number"
+          },
+          {
+            "name": "object_esd_mm",
+            "type": "number"
+          },
+          {
+            "name": "object_area_mm2",
+            "type": "number"
+          },
+          {
+            "name": "BioVolume",
+            "type": "number"
+          },
+          {
+            "name": "wet_wt",
+            "type": "number"
+          },
+          {
+            "name": "dry_wt",
+            "type": "number"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "object_id",
+          "bcodmo:description": "Organismal identification number. Typically cruiseID_mocnessID_net#_taxonomy_image# unless from a Reeve tow",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "taxa",
+          "bcodmo:description": "broad taxonomic classification",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "object_major",
+          "bcodmo:description": "<p>Zooscan pixel measurement of major axis</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "dpi"
+        },
+        {
+          "bcodmo:name": "object_minor",
+          "bcodmo:description": "<p>Zooscan pixel measurement of minor axis</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "dpi"
+        },
+        {
+          "bcodmo:name": "object_feret",
+          "bcodmo:description": "<p>Zooscan pixel measurement of feret diameter.&nbsp;Object maximum feret diameter, i.e., the longest distance between any two points along the object boundary in pixels.</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "dpi"
+        },
+        {
+          "bcodmo:name": "object_esd",
+          "bcodmo:description": "<p>Zooscan pixel measurement of estimated spherical diameter (Object Equivalent Spherical Diameter).</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "dpi"
+        },
+        {
+          "bcodmo:name": "object_area_exc",
+          "bcodmo:description": "<p>Zooscan pixel measurement of area (Zooscan \"Area_exc\").&nbsp;Surface of the object excluding holes in square pixel (=Area*(1-(%area/100)).</p>",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "dpi^2"
+        },
+        {
+          "bcodmo:name": "object_major_mm",
+          "bcodmo:description": "<p>particle major axis</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mm"
+        },
+        {
+          "bcodmo:name": "object_minor_mm",
+          "bcodmo:description": "<p>particle major axis</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mm"
+        },
+        {
+          "bcodmo:name": "object_feret_mm",
+          "bcodmo:description": "<p>particle feret length</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mm"
+        },
+        {
+          "bcodmo:name": "object_esd_mm",
+          "bcodmo:description": "particle estimated spherical diameter",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mm"
+        },
+        {
+          "bcodmo:name": "object_area_mm2",
+          "bcodmo:description": "<p>particle area</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mm^2"
+        },
+        {
+          "bcodmo:name": "BioVolume",
+          "bcodmo:description": "particle biovolume assuming an ellipsoidal shape",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mm^3"
+        },
+        {
+          "bcodmo:name": "wet_wt",
+          "bcodmo:description": "measured wet weight",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mg"
+        },
+        {
+          "bcodmo:name": "dry_wt",
+          "bcodmo:description": "measured dry weight",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mg"
+        }
+      ]
+    },
+    {
+      "name": "zooscan_mocness_output",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/857891",
+          "title": "ZooSCAN output from of imaged zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
+          "doi": "10.26008/1912/bco-dmo.857891.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/6YYMlVRurEQWp5/zooscan_mocness_output.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:c7a17763148a84bc375297adb09e01a9e88e3af797af5085d808c87ff345a684",
+      "bytes": 33041568,
+      "fields": 16,
+      "rows": 210248,
+      "schema": {
+        "fields": [
+          {
+            "name": "object_id",
+            "type": "string"
+          },
+          {
+            "name": "object_lat",
+            "type": "number"
+          },
+          {
+            "name": "object_lon",
+            "type": "number"
+          },
+          {
+            "name": "object_date",
+            "type": "date"
+          },
+          {
+            "name": "object_time",
+            "type": "time"
+          },
+          {
+            "name": "ISO_DateTime_UTC",
+            "type": "datetime"
+          },
+          {
+            "name": "object_depth_min",
+            "type": "number"
+          },
+          {
+            "name": "object_depth_max",
+            "type": "number"
+          },
+          {
+            "name": "object_annotation_hierarchy",
+            "type": "string"
+          },
+          {
+            "name": "object_area",
+            "type": "integer"
+          },
+          {
+            "name": "object_major",
+            "type": "number"
+          },
+          {
+            "name": "object_minor",
+            "type": "number"
+          },
+          {
+            "name": "object_feret",
+            "type": "number"
+          },
+          {
+            "name": "object_esd",
+            "type": "number"
+          },
+          {
+            "name": "sample_tot_vol",
+            "type": "number"
+          },
+          {
+            "name": "acq_sub_part",
+            "type": "integer"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "object_lat",
+          "bcodmo:description": "Latitude of collection",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "object_lon",
+          "bcodmo:description": "Longitude of collection",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "object_date",
+          "bcodmo:description": "Date of Collection in format yyyymmdd",
+          "bcodmo:datatype": "date",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%Y%m%d"
+        },
+        {
+          "bcodmo:name": "object_time",
+          "bcodmo:description": "Time of Collection in format hhmmss",
+          "bcodmo:datatype": "time",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%H%M%S"
+        },
+        {
+          "bcodmo:name": "object_depth_min",
+          "bcodmo:description": "Minimum depth of net collection",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "m"
+        },
+        {
+          "bcodmo:name": "object_depth_max",
+          "bcodmo:description": "Maximum depth of net collection",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "m"
+        },
+        {
+          "bcodmo:name": "object_annotation_hierarchy",
+          "bcodmo:description": "Taxonomic classification (predicted except for AE1712 which was validated)",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "object_area",
+          "bcodmo:description": "<p>Object area in pixels</p>",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "pix^2"
+        },
+        {
+          "bcodmo:name": "object_major",
+          "bcodmo:description": "<p>Object major axis length in pixels</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "pix"
+        },
+        {
+          "bcodmo:name": "object_minor",
+          "bcodmo:description": "<p>Object minor axis length in pixels</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "pix"
+        },
+        {
+          "bcodmo:name": "object_feret",
+          "bcodmo:description": "<p>Object Maximum feret diameter, i.e., the longest distance between any two points along the object boundary in pixels</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "pix"
+        },
+        {
+          "bcodmo:name": "object_esd",
+          "bcodmo:description": "Object Equivalent Spherical Diameter",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "pix"
+        },
+        {
+          "bcodmo:name": "sample_tot_vol",
+          "bcodmo:description": "Volume filtered",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "m^3"
+        },
+        {
+          "bcodmo:name": "acq_sub_part",
+          "bcodmo:description": "number of splits",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "number of splits"
+        },
+        {
+          "bcodmo:name": "object_id",
+          "bcodmo:description": "<p>Particle identifier (cruise#_mocnessID_net#_sizefraction_image#)</p>",
+          "bcodmo:datatype": "string"
+        },
+        {
+          "bcodmo:name": "ISO_DateTime_UTC",
+          "bcodmo:description": "<p>Datetime (UTC) of Collection in ISO 8601 format yyyy-mm-ddTHH:MMZ.</p>",
+          "bcodmo:datatype": "datetime",
+          "bcodmo:units": "%Y-%m-%dT%H:%M:%SZ"
+        }
+      ]
+    },
+    {
+      "name": "survey_biogeochemical",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/861266",
+          "title": "BIOS-SCOPE survey biogeochemical data as collected on Atlantic Explorer cruises (AE1614, AE1712, AE1819, AE1916) from 2016 through 2019",
+          "doi": "10.26008/1912/bco-dmo.861266.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/KAAGNEBc2V61jx/survey_biogeochemical.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:95f87b132193f3ae27dc6ed34371b1ef70505e3f45b8ac298953441f5463f774",
+      "bytes": 481907,
+      "fields": 76,
+      "rows": 1370,
+      "schema": {
+        "fields": [
+          {
+            "name": "Program",
+            "type": "string"
+          },
+          {
+            "name": "Cruise_ID",
+            "type": "string"
+          },
+          {
+            "name": "Cast",
+            "type": "integer"
+          },
+          {
+            "name": "Niskin",
+            "type": "integer"
+          },
+          {
+            "name": "decy",
+            "type": "number"
+          },
+          {
+            "name": "ISO_DateTime_UTC",
+            "type": "datetime"
+          },
+          {
+            "name": "Latitude",
+            "type": "number"
+          },
+          {
+            "name": "Longitude",
+            "type": "number"
+          },
+          {
+            "name": "Depth",
+            "type": "number"
+          },
+          {
+            "name": "Nominal_Depth",
+            "type": "integer"
+          },
+          {
+            "name": "Temp",
+            "type": "number"
+          },
+          {
+            "name": "CTD_SBE35T",
+            "type": "string"
+          },
+          {
+            "name": "Conductivity",
+            "type": "number"
+          },
+          {
+            "name": "CTD_S",
+            "type": "number"
+          },
+          {
+            "name": "Pressure",
+            "type": "number"
+          },
+          {
+            "name": "sig_theta",
+            "type": "number"
+          },
+          {
+            "name": "O2",
+            "type": "number"
+          },
+          {
+            "name": "BAC",
+            "type": "number"
+          },
+          {
+            "name": "Fluo",
+            "type": "number"
+          },
+          {
+            "name": "PAR",
+            "type": "integer"
+          },
+          {
+            "name": "Pot_Temp",
+            "type": "number"
+          },
+          {
+            "name": "Niskin_temp",
+            "type": "number"
+          },
+          {
+            "name": "NO3_plus_NO2",
+            "type": "string"
+          },
+          {
+            "name": "NO3_plus_NO2_QF",
+            "type": "string"
+          },
+          {
+            "name": "NO3",
+            "type": "string"
+          },
+          {
+            "name": "NO3_QF",
+            "type": "string"
+          },
+          {
+            "name": "NO2",
+            "type": "string"
+          },
+          {
+            "name": "NO2_QF",
+            "type": "string"
+          },
+          {
+            "name": "PO4",
+            "type": "string"
+          },
+          {
+            "name": "PO4_QF",
+            "type": "string"
+          },
+          {
+            "name": "NH4",
+            "type": "string"
+          },
+          {
+            "name": "NH4_QF",
+            "type": "string"
+          },
+          {
+            "name": "SiO2",
+            "type": "string"
+          },
+          {
+            "name": "SiO2_QF",
+            "type": "string"
+          },
+          {
+            "name": "POC",
+            "type": "string"
+          },
+          {
+            "name": "POC_QF",
+            "type": "string"
+          },
+          {
+            "name": "PON",
+            "type": "string"
+          },
+          {
+            "name": "PON_QF",
+            "type": "string"
+          },
+          {
+            "name": "DOC",
+            "type": "string"
+          },
+          {
+            "name": "DOC_QF",
+            "type": "string"
+          },
+          {
+            "name": "TDN",
+            "type": "string"
+          },
+          {
+            "name": "TDN_QF",
+            "type": "string"
+          },
+          {
+            "name": "Bact",
+            "type": "string"
+          },
+          {
+            "name": "Bact_QF",
+            "type": "string"
+          },
+          {
+            "name": "BP_Leu",
+            "type": "string"
+          },
+          {
+            "name": "BP_Leu_QF",
+            "type": "string"
+          },
+          {
+            "name": "TDAA",
+            "type": "string"
+          },
+          {
+            "name": "TDAA_QF",
+            "type": "string"
+          },
+          {
+            "name": "Ala",
+            "type": "string"
+          },
+          {
+            "name": "Arg",
+            "type": "string"
+          },
+          {
+            "name": "Asp",
+            "type": "string"
+          },
+          {
+            "name": "Beta_Ala",
+            "type": "string"
+          },
+          {
+            "name": "GABA",
+            "type": "string"
+          },
+          {
+            "name": "Glu",
+            "type": "string"
+          },
+          {
+            "name": "Gly",
+            "type": "string"
+          },
+          {
+            "name": "His",
+            "type": "string"
+          },
+          {
+            "name": "Ile",
+            "type": "string"
+          },
+          {
+            "name": "Leu",
+            "type": "string"
+          },
+          {
+            "name": "Lys",
+            "type": "string"
+          },
+          {
+            "name": "Met",
+            "type": "string"
+          },
+          {
+            "name": "Phe",
+            "type": "string"
+          },
+          {
+            "name": "Ser",
+            "type": "string"
+          },
+          {
+            "name": "Tau",
+            "type": "string"
+          },
+          {
+            "name": "Thr",
+            "type": "string"
+          },
+          {
+            "name": "Tyr",
+            "type": "string"
+          },
+          {
+            "name": "Val",
+            "type": "string"
+          },
+          {
+            "name": "V1V2_ID",
+            "type": "string"
+          },
+          {
+            "name": "V4_18s_ID",
+            "type": "string"
+          },
+          {
+            "name": "Sunrise",
+            "type": "integer"
+          },
+          {
+            "name": "Sunset",
+            "type": "integer"
+          },
+          {
+            "name": "MLD_dens125",
+            "type": "number"
+          },
+          {
+            "name": "MLD_bvfrq",
+            "type": "number"
+          },
+          {
+            "name": "MLD_densT2",
+            "type": "number"
+          },
+          {
+            "name": "DCM",
+            "type": "number"
+          },
+          {
+            "name": "VertZone",
+            "type": "integer"
+          },
+          {
+            "name": "Season",
+            "type": "integer"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "Program",
+          "bcodmo:description": "Program name",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Cruise_ID",
+          "bcodmo:description": "Vessel and cruise number",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Cast",
+          "bcodmo:description": "Cast number according to CTD log sheets",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Niskin",
+          "bcodmo:description": "Niskin bottle number according to CTD log sheets",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "decy",
+          "bcodmo:description": "Date in decimal year",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal years"
+        },
+        {
+          "bcodmo:name": "ISO_DateTime_UTC",
+          "bcodmo:description": "<p>Date and UTC Time&nbsp;in ISO8601 format</p>",
+          "bcodmo:datatype": "datetime",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%Y-%m-%dT%H:%M:%SZ"
+        },
+        {
+          "bcodmo:name": "Latitude",
+          "bcodmo:description": "<p>Latitude at start of cast</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Longitude",
+          "bcodmo:description": "<p>Longitude at start of cast (West is negative)</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Depth",
+          "bcodmo:description": "<p>CTD bottle collection depth</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "Nominal_Depth",
+          "bcodmo:description": "Target depth",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "Temp",
+          "bcodmo:description": "Standard CTD temperature profiling",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "degrees Celsius"
+        },
+        {
+          "bcodmo:name": "CTD_SBE35T",
+          "bcodmo:description": "Temperature from SeaBird 35 CTD which has 8 second average taken at time of the bottle fire. This sensor has an accuracy of 0.0001C as compared to the standard profiling units which have an accuracy of 0.002C.",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "degrees Celsius"
+        },
+        {
+          "bcodmo:name": "Conductivity",
+          "bcodmo:description": "Conductivity",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "Siemens per meter (S/m)"
+        },
+        {
+          "bcodmo:name": "CTD_S",
+          "bcodmo:description": "Salinity measured by CTD",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "practical salinity units (PSU)"
+        },
+        {
+          "bcodmo:name": "Pressure",
+          "bcodmo:description": "Pressure",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decibars (dbar)"
+        },
+        {
+          "bcodmo:name": "sig_theta",
+          "bcodmo:description": "Sigma-theta",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "kilograms per cubed meter (kg/m^3)"
+        },
+        {
+          "bcodmo:name": "O2",
+          "bcodmo:description": "CTD Oxygen",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "BAC",
+          "bcodmo:description": "Beam attenuation coefficient",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per meter"
+        },
+        {
+          "bcodmo:name": "Fluo",
+          "bcodmo:description": "CTD Fluorescence",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "microgram per liter (ug/L)"
+        },
+        {
+          "bcodmo:name": "PAR",
+          "bcodmo:description": "CTD Photosynthetically active radiation",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "microEinsteins per second per square meter (uE/m^2/sec)"
+        },
+        {
+          "bcodmo:name": "Pot_Temp",
+          "bcodmo:description": "Potential temperature",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "degrees Celsius"
+        },
+        {
+          "bcodmo:name": "Niskin_temp",
+          "bcodmo:description": "modeled Niskin temperature when it gets back on deck",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "degrees Celsius"
+        },
+        {
+          "bcodmo:name": "NO3_plus_NO2",
+          "bcodmo:description": "Nitrate plus nitrite concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "NO3_plus_NO2_QF",
+          "bcodmo:description": "Nitrate plus nitrite quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "NO3",
+          "bcodmo:description": "Nitrate concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "NO3_QF",
+          "bcodmo:description": "Nitrate quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "NO2",
+          "bcodmo:description": "Nitrite concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "NO2_QF",
+          "bcodmo:description": "Nitrite quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "PO4",
+          "bcodmo:description": "Ortho-phosphate concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "PO4_QF",
+          "bcodmo:description": "Ortho-phosphate quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "NH4",
+          "bcodmo:description": "Ammonium concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "NH4_QF",
+          "bcodmo:description": "Ammonium quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "SiO2",
+          "bcodmo:description": "Silicate concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "SiO2_QF",
+          "bcodmo:description": "Silicate quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "POC",
+          "bcodmo:description": "Particulate organic carbon",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per kilogram (ug/kg)"
+        },
+        {
+          "bcodmo:name": "POC_QF",
+          "bcodmo:description": "Particulate organic carbon quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "PON",
+          "bcodmo:description": "Particulate organic nitrogen",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per kilogram (ug/kg)"
+        },
+        {
+          "bcodmo:name": "PON_QF",
+          "bcodmo:description": "Particulate organic nitrogen quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "DOC",
+          "bcodmo:description": "Dissolved organic carbon concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "DOC_QF",
+          "bcodmo:description": "Dissolved organic carbon quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "TDN",
+          "bcodmo:description": "Total dissolved nitrogen concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "TDN_QF",
+          "bcodmo:description": "Total dissolved nitrogen quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Bact",
+          "bcodmo:description": "Bacterioplankton abundance from microscopy with DAPI stain",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "cells times 100 million per kilogram (cells*10^8/kg)"
+        },
+        {
+          "bcodmo:name": "Bact_QF",
+          "bcodmo:description": "Bacterioplankton abundance quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "BP_Leu",
+          "bcodmo:description": "Heterotrophic bacterial production based on 3H leucine incorporation",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "picomole per liter per hour (pmol/L/hr)"
+        },
+        {
+          "bcodmo:name": "BP_Leu_QF",
+          "bcodmo:description": "Bacterial production quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "TDAA",
+          "bcodmo:description": "Total dissolved amino acid",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "TDAA_QF",
+          "bcodmo:description": "Total dissolved amino acid quality flag",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Ala",
+          "bcodmo:description": "Amino acid alanine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Arg",
+          "bcodmo:description": "Amino acid arginine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Asp",
+          "bcodmo:description": "Amino acid aspartic acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Beta_Ala",
+          "bcodmo:description": "Amino acid beta-alanine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "GABA",
+          "bcodmo:description": "Amino acid gamma-aminobutyric acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Glu",
+          "bcodmo:description": "Amino acid glutamic acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Gly",
+          "bcodmo:description": "Amino acid glycine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "His",
+          "bcodmo:description": "Amino acid histidine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Ile",
+          "bcodmo:description": "Amino acid isoleucine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Leu",
+          "bcodmo:description": "Amino acid leucine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Lys",
+          "bcodmo:description": "Amino acid lysine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Met",
+          "bcodmo:description": "Amino acid methionine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Phe",
+          "bcodmo:description": "Amino acid phenylalanine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Ser",
+          "bcodmo:description": "Amino acid serine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Tau",
+          "bcodmo:description": "Amino acid derivative taurine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Thr",
+          "bcodmo:description": "Amino acid threonine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Tyr",
+          "bcodmo:description": "Amino acid tyrosine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "Val",
+          "bcodmo:description": "Amino acid valine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomole per liter (nmol/L)"
+        },
+        {
+          "bcodmo:name": "V1V2_ID",
+          "bcodmo:description": "Sequence ID for 16S amplicon V1V2 region",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "V4_18s_ID",
+          "bcodmo:description": "Sequence ID for 18S V4 region",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Sunrise",
+          "bcodmo:description": "Time of sunrise in UTC derived from CTD data and computed from geographic position and date",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Sunset",
+          "bcodmo:description": "Time of sunset in UTC derived from CTD data and computed from geographic position and date",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "MLD_dens125",
+          "bcodmo:description": "Mixed layer depth defined by surface density plus 0.125 kilograms per cubed meter (see Acquisition description)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "MLD_bvfrq",
+          "bcodmo:description": "Depth of \"active mixing\" defined by buoyancy frequency after Mojica & Gaube (see Acquisition description)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "MLD_densT2",
+          "bcodmo:description": "MLD from Thermal Expansion Coeff, and dT=0.2 deg C (see Acqusition description)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "DCM",
+          "bcodmo:description": "Depth of chlorophyll maximum (from CTD fluorometer)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "VertZone",
+          "bcodmo:description": "Vertical Zone designation where vertical layers 0 to 10 are defined by dynamical and biogeochemical criteria (see Table 1 under Supplemental Files)",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Season",
+          "bcodmo:description": "Season designation where 1=Mixed, 2=Spring Transition, 3=Stratified, 4=Fall Transition",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        }
+      ]
+    },
+    {
+      "name": "920443_v1_biosscope_in_situ_pump_chemical_data",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/920443",
+          "title": "Chemical analyses of size-fractionated particle samples collected during the BIOS-SCOPE cruise AE1819 in the Sargasso Sea in July 2018",
+          "doi": "10.26008/1912/bco-dmo.920443.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/oAJMAWlunxyLm/920443_v1_biosscope_in_situ_pump_chemical_data.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:a1ef22a7dc654f483091d2e4a9babb4fa91558d000462916e93a8098be086c1e",
+      "bytes": 1358,
+      "fields": 19,
+      "rows": 10,
+      "schema": {
+        "fields": [
+          {
+            "name": "Sample",
+            "type": "string"
+          },
+          {
+            "name": "Cruise",
+            "type": "string"
+          },
+          {
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "name": "Latitude",
+            "type": "number"
+          },
+          {
+            "name": "Longitude",
+            "type": "number"
+          },
+          {
+            "name": "size_fraction_um",
+            "type": "string"
+          },
+          {
+            "name": "split_type",
+            "type": "string"
+          },
+          {
+            "name": "Depth_m",
+            "type": "integer"
+          },
+          {
+            "name": "total_phytol_from_chlorophyll_concentration_ng_L",
+            "type": "number"
+          },
+          {
+            "name": "phytol_concentration_sd_ng_L",
+            "type": "number"
+          },
+          {
+            "name": "d13C_phytol_corrected_value_per_mil",
+            "type": "number"
+          },
+          {
+            "name": "d13C_phytol_sd_per_mil",
+            "type": "number"
+          },
+          {
+            "name": "d13C_POC_per_mil",
+            "type": "number"
+          },
+          {
+            "name": "d13C_POC_sd_per_mil",
+            "type": "number"
+          },
+          {
+            "name": "POC_concentration_ug_L",
+            "type": "number"
+          },
+          {
+            "name": "d13C_THAA_per_mil",
+            "type": "number"
+          },
+          {
+            "name": "d13C_THAA_sd_per_mil",
+            "type": "number"
+          },
+          {
+            "name": "TP_from_d15N_AA",
+            "type": "number"
+          },
+          {
+            "name": "TP_sd",
+            "type": "number"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "Sample",
+          "bcodmo:description": "Internal sample ID",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Cruise",
+          "bcodmo:description": "BIOSSCOPE cruise identifier",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Date",
+          "bcodmo:description": "<p>Date (local, Bermuda) of sample collection</p>",
+          "bcodmo:datatype": "date",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%Y-%m-%d"
+        },
+        {
+          "bcodmo:name": "Latitude",
+          "bcodmo:description": "<p>Latitude of sample collection</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Longitude",
+          "bcodmo:description": "<p>Longitude of sample collection (negative values = West)</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "size_fraction_um",
+          "bcodmo:description": "particle size range for water fraction",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "micrometers (um)"
+        },
+        {
+          "bcodmo:name": "split_type",
+          "bcodmo:description": "Condition under which filter was stored and split into fractions for analysis (frozen or freeze dried)",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Depth_m",
+          "bcodmo:description": "<p>Water column depth of sample</p>",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "total_phytol_from_chlorophyll_concentration_ng_L",
+          "bcodmo:description": "phytol concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanograms per liter (ng/L)"
+        },
+        {
+          "bcodmo:name": "phytol_concentration_sd_ng_L",
+          "bcodmo:description": "phytol concentration standard deviation",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanograms per liter (ng/L)"
+        },
+        {
+          "bcodmo:name": "d13C_phytol_corrected_value_per_mil",
+          "bcodmo:description": "stable carbon isotope composition of phytol",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per mil"
+        },
+        {
+          "bcodmo:name": "d13C_phytol_sd_per_mil",
+          "bcodmo:description": "stable carbon isotope composition of phytol standard deviation",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per mil"
+        },
+        {
+          "bcodmo:name": "d13C_POC_per_mil",
+          "bcodmo:description": "stable carbon isotope composition of bulk particulate organic carbon",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per mil"
+        },
+        {
+          "bcodmo:name": "d13C_POC_sd_per_mil",
+          "bcodmo:description": "stable carbon isotope composition of bulk particulate organic carbon standard deviation",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per mil"
+        },
+        {
+          "bcodmo:name": "POC_concentration_ug_L",
+          "bcodmo:description": "bulk particulate organic carbon",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per liter (ug/L)"
+        },
+        {
+          "bcodmo:name": "d13C_THAA_per_mil",
+          "bcodmo:description": "d13C values of total hydrolysable amino acids",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per mil"
+        },
+        {
+          "bcodmo:name": "d13C_THAA_sd_per_mil",
+          "bcodmo:description": "d13C THAA standard deviation",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "per mil"
+        },
+        {
+          "bcodmo:name": "TP_from_d15N_AA",
+          "bcodmo:description": "POM trophic position (TP) calculated from measured d15N values of glutamic acid+glutamine (Glx) and phenylalanine (Phe) as in Chikaraishi et al. (2009): TP = (d15NGlx - d15NPhe - 3.4)/7.6 + 1 . TP propagated uncertainty was calculated as in Jarman et al. (2017).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "TP_sd",
+          "bcodmo:description": "Trophic Position (TP) standard deviation",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "unitless"
+        }
+      ]
+    },
+    {
+      "name": "964684_v1_amino_acids_biosscope_2021",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/964684",
+          "title": "Size fractionated Amino Acid data collected in the Sargasso Sea during BIOS-SCOPE cruises AE2114 and AE2123 in August and November 2021",
+          "doi": "10.26008/1912/bco-dmo.964684.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/XYG3xXqfkkjG5x/964684_v1_amino_acids_biosscope_2021.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:2a59aa1c4c9756e85b07b0e79e62be50e3e1a4f334b5aaf037c2a5b0043346bf",
+      "bytes": 7379,
+      "fields": 40,
+      "rows": 33,
+      "schema": {
+        "fields": [
+          {
+            "name": "Sample_ID",
+            "type": "string"
+          },
+          {
+            "name": "Cruise",
+            "type": "string"
+          },
+          {
+            "name": "Latitude",
+            "type": "number"
+          },
+          {
+            "name": "Longitude",
+            "type": "number"
+          },
+          {
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "name": "Size_fraction",
+            "type": "string"
+          },
+          {
+            "name": "Filter_type",
+            "type": "string"
+          },
+          {
+            "name": "Depth",
+            "type": "integer"
+          },
+          {
+            "name": "Asp",
+            "type": "number"
+          },
+          {
+            "name": "Asp_sd",
+            "type": "number"
+          },
+          {
+            "name": "Glu",
+            "type": "number"
+          },
+          {
+            "name": "Glu_sd",
+            "type": "number"
+          },
+          {
+            "name": "HisSer",
+            "type": "number"
+          },
+          {
+            "name": "HisSer_sd",
+            "type": "number"
+          },
+          {
+            "name": "Arg",
+            "type": "number"
+          },
+          {
+            "name": "Arg_sd",
+            "type": "number"
+          },
+          {
+            "name": "Thr",
+            "type": "number"
+          },
+          {
+            "name": "Thr_sd",
+            "type": "number"
+          },
+          {
+            "name": "Gly",
+            "type": "number"
+          },
+          {
+            "name": "Gly_sd",
+            "type": "number"
+          },
+          {
+            "name": "Bala",
+            "type": "number"
+          },
+          {
+            "name": "Bala_sd",
+            "type": "number"
+          },
+          {
+            "name": "Tyr",
+            "type": "number"
+          },
+          {
+            "name": "Tyr_sd",
+            "type": "number"
+          },
+          {
+            "name": "Ala",
+            "type": "number"
+          },
+          {
+            "name": "Ala_sd",
+            "type": "number"
+          },
+          {
+            "name": "GABA",
+            "type": "number"
+          },
+          {
+            "name": "GABA_sd",
+            "type": "number"
+          },
+          {
+            "name": "Met",
+            "type": "number"
+          },
+          {
+            "name": "Met_sd",
+            "type": "number"
+          },
+          {
+            "name": "Val",
+            "type": "number"
+          },
+          {
+            "name": "Val_sd",
+            "type": "number"
+          },
+          {
+            "name": "Phe",
+            "type": "number"
+          },
+          {
+            "name": "Phe_sd",
+            "type": "number"
+          },
+          {
+            "name": "Ile",
+            "type": "number"
+          },
+          {
+            "name": "Ile_sd",
+            "type": "number"
+          },
+          {
+            "name": "Leu",
+            "type": "number"
+          },
+          {
+            "name": "Leu_sd",
+            "type": "number"
+          },
+          {
+            "name": "Lys",
+            "type": "number"
+          },
+          {
+            "name": "Lys_sd",
+            "type": "number"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "Sample_ID",
+          "bcodmo:description": "Internal sample ID",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Cruise",
+          "bcodmo:description": "BIOSSCOPE cruise identifier",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Latitude",
+          "bcodmo:description": "<p>Latitude of sample collection</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Longitude",
+          "bcodmo:description": "<p>Longitude of sample collection</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Date",
+          "bcodmo:description": "<p>Date of sample collection</p>",
+          "bcodmo:datatype": "date",
+          "bcodmo:units": "units",
+          "bcodmo:valueFormat": "%Y-%m-%d"
+        },
+        {
+          "bcodmo:name": "Size_fraction",
+          "bcodmo:description": "Particle size range for water fraction",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "micrometers (um)"
+        },
+        {
+          "bcodmo:name": "Filter_type",
+          "bcodmo:description": "Filter type used for particle fraction (Nitex, GF/C ,GF75)",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Depth",
+          "bcodmo:description": "<p>Water column depth of sample</p>",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "Asp",
+          "bcodmo:description": "average amino acid concentration: Aspartic Acid. One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Asp_sd",
+          "bcodmo:description": "standard deviation of Aspartic Acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Glu",
+          "bcodmo:description": "average amino acid concentration:  Glutamic Acid.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Glu_sd",
+          "bcodmo:description": "standard deviation of Glutamic Acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "HisSer",
+          "bcodmo:description": "average amino acid concentration:  Histidine+Serine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "HisSer_sd",
+          "bcodmo:description": "standard deviation of Histidine+Serine amino acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Arg",
+          "bcodmo:description": "average amino acid concentration:  Arginine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Arg_sd",
+          "bcodmo:description": "standard deviation of Arginine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Thr",
+          "bcodmo:description": "average amino acid concentration:  Threonine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Thr_sd",
+          "bcodmo:description": "standard deviation of Threonine concenctration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Gly",
+          "bcodmo:description": "average amino acid concentration:  Glycine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Gly_sd",
+          "bcodmo:description": "standard deviation of Glycine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Bala",
+          "bcodmo:description": "average amino acid concentration:  Beta-alanine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Bala_sd",
+          "bcodmo:description": "standard deviation of Beta-alanine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Tyr",
+          "bcodmo:description": "average amino acid concentration:  Tyrosine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Tyr_sd",
+          "bcodmo:description": "standard deviation of Tyrosine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Ala",
+          "bcodmo:description": "average amino acid concentration:  Alanine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Ala_sd",
+          "bcodmo:description": "standard deviation of Alanine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "GABA",
+          "bcodmo:description": "average amino acid concentration:  Gamma-aminobutyric acid.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "GABA_sd",
+          "bcodmo:description": "standard deviation of Gamma-aminobutyric acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Met",
+          "bcodmo:description": "average amino acid concentration:  Methionine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Met_sd",
+          "bcodmo:description": "standard deviation of Methionine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Val",
+          "bcodmo:description": "average amino acid concentration:  Valine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Val_sd",
+          "bcodmo:description": "standard deviation of Valine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Phe",
+          "bcodmo:description": "average amino acid concentration:  Phenylalanine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Phe_sd",
+          "bcodmo:description": "standard deviation of Phenylalanine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Ile",
+          "bcodmo:description": "average amino acid concentration:  Isoleucine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Ile_sd",
+          "bcodmo:description": "standard deviation of Isoleucine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Leu",
+          "bcodmo:description": "average amino acid concentration:  Leucine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Leu_sd",
+          "bcodmo:description": "standard deviation of Leucine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Lys",
+          "bcodmo:description": "average amino acid concentration:  Lysine.  One filter split was prepared per sample, and three aliquots from the final prepared solution were analyzed (triplicate injections).",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        },
+        {
+          "bcodmo:name": "Lys_sd",
+          "bcodmo:description": "standard deviation of Lysine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter"
+        }
+      ]
+    },
+    {
+      "name": "964801_v1_pump_carbohydrates_biosscope_2021",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/964801",
+          "title": "Size fractionated carbohydrate data collected in the Sargasso Sea during BIOS-SCOPE cruises AE2114 and AE2123 in August and November 2021",
+          "doi": "10.26008/1912/bco-dmo.964801.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/7Dxl3PMCmEl8lX/964801_v1_pump_carbohydrates_biosscope_2021.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:11810cf9fe1621c5f1433c0122ce7b73d26eb115500e4574e13f3b5d89e97b93",
+      "bytes": 7765,
+      "fields": 32,
+      "rows": 39,
+      "schema": {
+        "fields": [
+          {
+            "name": "Sample_ID",
+            "type": "string"
+          },
+          {
+            "name": "Cruise",
+            "type": "string"
+          },
+          {
+            "name": "Latitude",
+            "type": "number"
+          },
+          {
+            "name": "Longitude",
+            "type": "number"
+          },
+          {
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "name": "Size_fraction",
+            "type": "string"
+          },
+          {
+            "name": "Filter_type",
+            "type": "string"
+          },
+          {
+            "name": "Depth",
+            "type": "integer"
+          },
+          {
+            "name": "Fucose",
+            "type": "number"
+          },
+          {
+            "name": "Fucose_sd",
+            "type": "number"
+          },
+          {
+            "name": "Rhamnose",
+            "type": "number"
+          },
+          {
+            "name": "Rhamnose_sd",
+            "type": "number"
+          },
+          {
+            "name": "Galactosamine",
+            "type": "number"
+          },
+          {
+            "name": "Galactosamine_sd",
+            "type": "number"
+          },
+          {
+            "name": "Arabinose",
+            "type": "number"
+          },
+          {
+            "name": "Arabinose_sd",
+            "type": "number"
+          },
+          {
+            "name": "Glucosamine",
+            "type": "number"
+          },
+          {
+            "name": "Glucosamine_sd",
+            "type": "number"
+          },
+          {
+            "name": "Galactose",
+            "type": "number"
+          },
+          {
+            "name": "Galactose_sd",
+            "type": "number"
+          },
+          {
+            "name": "Glucose",
+            "type": "number"
+          },
+          {
+            "name": "Glucose_sd",
+            "type": "number"
+          },
+          {
+            "name": "MannoseXylose",
+            "type": "number"
+          },
+          {
+            "name": "MannoseXylose_sd",
+            "type": "number"
+          },
+          {
+            "name": "Ribose",
+            "type": "number"
+          },
+          {
+            "name": "Ribose_sd",
+            "type": "number"
+          },
+          {
+            "name": "MurAc",
+            "type": "number"
+          },
+          {
+            "name": "MurAc_sd",
+            "type": "number"
+          },
+          {
+            "name": "GalURA",
+            "type": "number"
+          },
+          {
+            "name": "GalURA_sd",
+            "type": "number"
+          },
+          {
+            "name": "GlcURA",
+            "type": "number"
+          },
+          {
+            "name": "GlcURA_sd",
+            "type": "number"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "Sample_ID",
+          "bcodmo:description": "Internal sample ID",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Cruise",
+          "bcodmo:description": "BIOSSCOPE cruise identifier",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Latitude",
+          "bcodmo:description": "<p>Latitude of sampling</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Longitude",
+          "bcodmo:description": "<p>Longitude of sampling</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Date",
+          "bcodmo:description": "<p>Date of sampling</p>",
+          "bcodmo:datatype": "date",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%Y-%m-%d"
+        },
+        {
+          "bcodmo:name": "Size_fraction",
+          "bcodmo:description": "Particle size range for water fraction",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "micrometers (um)"
+        },
+        {
+          "bcodmo:name": "Filter_type",
+          "bcodmo:description": "Filter type used for particle fraction (Nitex, GF/C ,GF75)",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Depth",
+          "bcodmo:description": "<p>Water column depth of sample</p>",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "Fucose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Fucose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Fucose_sd",
+          "bcodmo:description": "Standard deviation of Fucose concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Rhamnose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Rhamnose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Rhamnose_sd",
+          "bcodmo:description": "Standard deviation of Rhamnose concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Galactosamine",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Galactosamine",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Galactosamine_sd",
+          "bcodmo:description": "Standard deviation of Galactosamine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Arabinose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Arabinose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Arabinose_sd",
+          "bcodmo:description": "Standard deviation of Arabinose concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Glucosamine",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Glucosamine",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Glucosamine_sd",
+          "bcodmo:description": "Standard deviation of Glucosamine concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Galactose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Galactose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Galactose_sd",
+          "bcodmo:description": "Standard deviation of Galactose concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Glucose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Glucose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Glucose_sd",
+          "bcodmo:description": "Standard deviation of Glucose concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "MannoseXylose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Mannose+Xylose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "MannoseXylose_sd",
+          "bcodmo:description": "<p>Standard deviation of Mannose+Xylose concentration</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Ribose",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Ribose",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "Ribose_sd",
+          "bcodmo:description": "<p>Standard deviation of Ribose concentration</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "MurAc",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Muramic acid",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "MurAc_sd",
+          "bcodmo:description": "Standard deviation of Muramic acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "GalURA",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Galacturonic acid",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "GalURA_sd",
+          "bcodmo:description": "Standard deviation of Galacturonic acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "GlcURA",
+          "bcodmo:description": "Carbohydrate monomer average concentration: Glucuronic acid",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        },
+        {
+          "bcodmo:name": "GlcURA_sd",
+          "bcodmo:description": "Standard deviation of Glucuronic acid concentration",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "nanomoles carbon per liter (nmol C/L)"
+        }
+      ]
+    },
+    {
+      "name": "964826_v1_pump_poc_pon_biosscope",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/964826",
+          "title": "Size Fractionated Particulate Organic Carbon (POC) and Particulate Organic Nitrogen (PON) collected during BIOS-SCOPE cruises (2018-2023) aboard the R/V Atlantic Explorer",
+          "doi": "10.26008/1912/bco-dmo.964826.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/m7zBJ4GTjvNzDY/964826_v1_pump_poc_pon_biosscope.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:200d2c23655f49782528ad632b6d8eabd872fbff0ab10e53a771864e688e5d8f",
+      "bytes": 11648,
+      "fields": 15,
+      "rows": 149,
+      "schema": {
+        "fields": [
+          {
+            "name": "Sample_ID",
+            "type": "string"
+          },
+          {
+            "name": "Cruise",
+            "type": "string"
+          },
+          {
+            "name": "Latitude",
+            "type": "number"
+          },
+          {
+            "name": "Longitude",
+            "type": "number"
+          },
+          {
+            "name": "Date",
+            "type": "date"
+          },
+          {
+            "name": "Size_fraction",
+            "type": "string"
+          },
+          {
+            "name": "Filter_type",
+            "type": "string"
+          },
+          {
+            "name": "Depth",
+            "type": "integer"
+          },
+          {
+            "name": "Depth_sd",
+            "type": "integer"
+          },
+          {
+            "name": "PN",
+            "type": "number"
+          },
+          {
+            "name": "PN_sd",
+            "type": "number"
+          },
+          {
+            "name": "POC",
+            "type": "number"
+          },
+          {
+            "name": "POC_sd",
+            "type": "number"
+          },
+          {
+            "name": "CN_acnonac",
+            "type": "number"
+          },
+          {
+            "name": "CN_acnonac_sd",
+            "type": "number"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "Sample_ID",
+          "bcodmo:description": "Internal sample ID",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Cruise",
+          "bcodmo:description": "BIOSSCOPE cruise identifier",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Latitude",
+          "bcodmo:description": "<p>Latitude of sampling</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Longitude",
+          "bcodmo:description": "<p>Longitude of sampling</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "Date",
+          "bcodmo:description": "<p>Date of sampling</p>",
+          "bcodmo:datatype": "date",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%Y-%m-%d"
+        },
+        {
+          "bcodmo:name": "Size_fraction",
+          "bcodmo:description": "Particle size range for water fraction",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "micrometers (um)"
+        },
+        {
+          "bcodmo:name": "Filter_type",
+          "bcodmo:description": "Filter type used for particle fraction (Nitex, GF/C ,GF75)",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Depth",
+          "bcodmo:description": "<p>Water column depth of sample averaged over sampling period (duration of pump time)</p>",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "Depth_sd",
+          "bcodmo:description": "standard deviation of the depth",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters (m)"
+        },
+        {
+          "bcodmo:name": "PN",
+          "bcodmo:description": "PN; average bulk particulate nitrogen (one sample filter analyzed, replicate blanks used to incorporate uncertainty)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per liter (ug/L)"
+        },
+        {
+          "bcodmo:name": "PN_sd",
+          "bcodmo:description": "standard deviation for bulk particulate nitrogen",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per liter (ug/L)"
+        },
+        {
+          "bcodmo:name": "POC",
+          "bcodmo:description": "POC; average bulk particulate organic carbon (one sample filter analyzed, replicate blanks used to incorporate uncertainty)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per liter (ug/L)"
+        },
+        {
+          "bcodmo:name": "POC_sd",
+          "bcodmo:description": "standard deviation for bulk particulate organic carbon",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micrograms per liter (ug/L)"
+        },
+        {
+          "bcodmo:name": "CN_acnonac",
+          "bcodmo:description": "Carbon to nitrogen ratio of acidified POC to non-acidified PN",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mole to mole (mol/mol)"
+        },
+        {
+          "bcodmo:name": "CN_acnonac_sd",
+          "bcodmo:description": "standard deviation of CN ratio (propagated error from POC and PN)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "mole to mole (mol/mol)"
+        }
+      ]
+    }
+  ]
+}
