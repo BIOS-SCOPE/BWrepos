@@ -45,7 +45,7 @@
       "doi": "10.26008/1912/bco-dmo.964826.1"
     }
   ],
-  "created": "2025-06-29T15:04:06.865159Z",
+  "created": "2025-06-30T13:23:20.424975Z",
   "resources": [
     {
       "name": "zooscan_images_bats_ae1614",
@@ -95,7 +95,7 @@
       "scheme": "https",
       "format": "tar",
       "compression": "gz",
-      "encoding": "cp1252",
+      "encoding": "utf-8",
       "bcodmo:parameters": []
     },
     {
@@ -112,7 +112,7 @@
       "scheme": "https",
       "format": "tar",
       "compression": "gz",
-      "encoding": "cp1252",
+      "encoding": "utf-8",
       "bcodmo:parameters": []
     },
     {
