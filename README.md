@@ -3,6 +3,9 @@ Scripting access to transfer data from one repository to another
 Krista Longnecker
 
 Most recent comments at the top.
+### 5 July 2025
+All set with the biogeochemical data - I can go from BCO-DMO to CMAP in one Python notebook. Move this repository over the BIOS-SCOPE, but still keep it private.
+
 ### 3 July 2025
 I can now use the data in the frictionless/json file and put it into the CMAP format. Next step will be to get the metadata about the different variables.
 
