@@ -1,5 +1,6 @@
 # BWrepos
-Scripting access to transfer data from one repository to another
+Scripting access to transfer data from one repository to another\
+This is private for now as I don't know if BCO-DMO is ready to have their code available yet.
 Krista Longnecker
 
 Most recent comments at the top.
@@ -15,7 +16,6 @@ Adam Shepard set up the script I need to access the data in BCO-DMO and the end 
 - [x] Convert the information in the Frictionless package to the CMAP format
 - [x] Check out Adam's code
  
-
 ### 27 June 2025
 Keep this private for now as I am starting with code that is not yet publically available.
 
