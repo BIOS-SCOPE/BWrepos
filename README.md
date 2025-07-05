@@ -5,7 +5,8 @@ Krista Longnecker
 
 Most recent comments at the top.
 ### 5 July 2025
-All set with the biogeochemical data - I can go from BCO-DMO to CMAP in one Python notebook. Move this repository over the BIOS-SCOPE, but still keep it private.
+All set with the biogeochemical data - I can go from BCO-DMO to CMAP in one Python notebook. Move this repository over the BIOS-SCOPE, but still keep it private. 
+To get this to work, first run ```getBCODMOinfo.ipynb``` and then run ```convertBCODMOtoCMAP.ipynb``` and the end results is an Excel file with the three required worksheets.
 
 ### 3 July 2025
 I can now use the data in the frictionless/json file and put it into the CMAP format. Next step will be to get the metadata about the different variables.
