@@ -4,6 +4,9 @@ This is private for now as I don't know if BCO-DMO is ready to have their code a
 Krista Longnecker
 
 Most recent comments at the top.
+### 13 July 2025
+Change to using convert.py to a script, but now I realize that even within BIOS-SCOPE the differnt data files all have super different formats so this is not going to be easily scripted. Right now this works for the discrete data file, but the zooplankton group has a different format and presumably the particle data will also be different.
+
 ### 5 July 2025
 All set with the biogeochemical data - I can go from BCO-DMO to CMAP in one Python notebook. Move this repository over the BIOS-SCOPE, but still keep it private. 
 To get this to work, first run ```getBCODMOinfo.ipynb``` and then run ```convertBCODMOtoCMAP.ipynb``` and the end results is an Excel file with the three required worksheets.
