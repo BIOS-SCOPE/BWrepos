@@ -7,6 +7,7 @@
 # This script will convert the BCO-DMO json file into the format required by CMAP
 # Work on the input for one file, with the end result as one Excel file; will only end up here if the data 
 # file is a CSV file
+#this script works on the pump data from the Close lab, RSMAS, University of Miami
 
 #some of these are residual from assembling the data file, keep for now.
 import pandas as pd
@@ -59,15 +60,16 @@ def main():
     
     # time --> CMAP requirement is this: #< Format  %Y-%m-%dT%H:%M:%S,  Time-Zone:  UTC,  example: 2014-02-28T14:25:55 >
     # Do this in two steps so I can check the output more easily
+    #no time available in particle data
     temp = bcodmo.copy()
-    temp['date'] = pd.to_datetime(temp['decy'], unit='D', origin='1970-01-01')
+    temp['date'] = pd.to_datetime(temp['Date'])
     temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S")
     df['time'] = temp['date_cmap']
     
     # lat (-90 to 90) and lon (-180 to 180); use variable names at BCO-DMO
     df['lat'] = bcodmo['Latitude']
     df['lon'] = bcodmo['Longitude']  #BCO-DMO already has this as negative
-    df['depth'] = bcodmo['Depth']
+    df['depth'] = bcodmo['Depth_m']
     
     # all remaining columns in bcodmo can be considered data
     #remember: bcodmo_trim will have the list of variables that I will use later to get metadata about the variables
