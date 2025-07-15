@@ -40,13 +40,13 @@ def main():
     Go through the steps needed to go from BCO-DMO details in json file and end with output that is an Excel file
     '''
     #pdb.set_trace()
-    idx = int(sys.argv[1])
+    idx_json = int(sys.argv[1])
     
     #to do: figure out a better way to do this so I am not reading in the json file every time
     biosscope = Package('datapackage.json')
     
-    data_url = biosscope.resources[idx].path
-    md = biosscope.resources[idx].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
+    data_url = biosscope.resources[idx_json].path
+    md = biosscope.resources[idx_json].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
 
     #make a short name out of the data_url, will use this as part of the name for the final Excel file 
     exportFile = re.split('/',data_url).pop().replace('.csv','')
@@ -69,11 +69,18 @@ def main():
     # lat (-90 to 90) and lon (-180 to 180); use variable names at BCO-DMO
     df['lat'] = bcodmo['Latitude']
     df['lon'] = bcodmo['Longitude']  #BCO-DMO already has this as negative
-    df['depth'] = bcodmo['Depth_m']
+
+    #depth in the UM data can be either 'Depth' or 'Depth_m' --> figure out which one
+    if 'Depth' in bcodmo.columns:
+        useD = 'Depth'
+    elif 'Depth_m' in bcodmo.columns:
+        useD = 'Depth_m'
+    
+    df['depth'] = bcodmo[useD]
     
     # all remaining columns in bcodmo can be considered data
     #remember: bcodmo_trim will have the list of variables that I will use later to get metadata about the variables
-    bcodmo_trim = bcodmo.drop(columns=['Latitude', 'Longitude', 'Depth'])
+    bcodmo_trim = bcodmo.drop(columns=['Latitude', 'Longitude', useD])
     nVariables = bcodmo_trim.shape[1] #remember in Python indexing starts with 0 (rows, 1 is the columns)
     # and then add to the datafile I am assembling (essentially re-order columns
     df = pd.concat([df, bcodmo_trim], axis=1)
@@ -153,21 +160,21 @@ def main():
     #pdb.set_trace()
     df3 = pd.DataFrame({
         'dataset_short_name': ['BIOSSCOPE_v1'],
-        'dataset_long_name': ['BIOS-SCOPE ' + exportFile],
+        'dataset_long_name': ['BIOS-SCOPE_' + exportFile],
         'dataset_version': ['1.0'],
         'dataset_release_date': ['2025-06-25'],
         'dataset_make': ['observation'],
-        'dataset_source': ['Craig Carlson, Bermuda Institute of Ocean Sciences'],
-        'dataset_distributor': ['Craig Carlson, Bermuda Institute of Ocean Sciences'],
+        'dataset_source': ['Hilary Close, University of Miami Rosenstiel School of Marine and Atmospheric Science'],
+        'dataset_distributor': ['Hilary Close, University of Miami Rosenstiel School of Marine and Atmospheric Science'],
         'dataset_acknowledgement': ['We thank the BIOS-SCOPE project team and the BATS team for assistance with sample collection, processing, and analysis. The efforts of the captains, crew, and marine technicians of the R/V Atlantic Explorer are a key aspect of the success of this project. This work supported by funding from the Simons Foundation International.'],
         'dataset_history': [''],
-        'dataset_description': ['This dataset includes analyses from Niskin bottle samples collected on R/V Atlantic Explorer cruises as part of the BIOS-SCOPE campaign in the time period from 2016 until 2025. Included are CTD data, and survey biogeochemical samples including inorganic nutrients, particulate organic carbon and nitrogen, dissolved organic carbon, dissolved organic nitrogen, total dissolved amino acids, bacterial abundance and production.'],
-        'dataset_references': ['Carlson, C. A., Giovannoni, S., Liu, S., Halewood, E. (2025) BIOS-SCOPE survey biogeochemical data as collected on Atlantic Explorer cruises (AE1614, AE1712, AE1819, AE1916) from 2016 through 2019. Biological and Chemical Oceanography Data Management Office (BCO-DMO). (Version 1) Version Date 2021-10-17. doi:10.26008/1912/bco-dmo.861266.1 [25 June 2025]'],
+        'dataset_description': [biosscope.resources[idx_json].sources[0]['title']],
+        'dataset_references': ['Henderson, L.C., Wittmers, F., Carlson, C. A., Worden, A.Z., & Close, H. G. (2024. Variable carbon isotope fractionation of photosynthetic communities over depth in an open-ocean euphotic zone. Proceedings of the National Academy of Sciences, 121(10). https://doi.org/10.1073/pnas.2304613121'],
         'climatology': [0]
         })
     
     #get the list of cruise names from the bcodmo data file
-    t = pd.DataFrame(bcodmo['Cruise_ID'].unique())
+    t = pd.DataFrame(bcodmo['Cruise'].unique())
     t.columns = ['cruise_names']
     df3 = pd.concat([df3,t],axis=1,ignore_index = True)
       

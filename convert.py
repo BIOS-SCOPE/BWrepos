@@ -134,7 +134,7 @@ def main():
     # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
     #to pull the sensor information from the file as well.
     fName = 'CMAP_variableMetadata_additions.xlsx'
-    moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data')
+    moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data_discrete')
    
     #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
     df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
