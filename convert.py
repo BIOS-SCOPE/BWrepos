@@ -175,7 +175,7 @@ def main():
     os.chdir(".")
     
     if os.path.isdir(folder):
-        print("Data will go here: %s" % (os.getcwd()) + '\\' + folder)
+        print("Data will go here: %s" % (os.getcwd()) + '\\' + folder + '\\' + exportFile)
     else:
         os.mkdir(folder)
     

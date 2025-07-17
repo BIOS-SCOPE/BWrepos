@@ -101,20 +101,22 @@ def main():
     #there is most certainly a better way to do this, but I understand this option
     for idx,item in enumerate(df2.iterrows()):
         a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
+        #pdb.set_trace()
         df2.loc[idx,'var_long_name'] = a
         df2.loc[idx,'var_unit'] = b
+        #print(a)
     
     #for sensor I will need a lookup table as the information at BCO-DMO is not formatted to provide this. There is some
     #sensor information, but I don't see how it is linked directly to specific measured variables, and more than one variable can match a given sensor.
     #Later note, probably easier to put this into Excel (see notes below about the CMAP keywords that are required)
     
-    #13 options listed at BCO-DMO:manually assign to one or more variables as possible
-    LUsensors = {'CTD SeaBird 911+':['Temp','CTD_SBE35T','Conductivity','Pressure'],
-                 'Lachat QuikChem 8500 series 2':['NO3_plus_NO2','NO3','NO2','PO4','NH4','SiO2'],
-                 'Shimadzu TOC-V':['DOC'],
-                 'TNM-1 chemiluminescent detector assembly':['TDN'],
-                 'Olympus BX51 epifluorescent microscope':['Bact']
-                }
+    # #13 options listed at BCO-DMO:manually assign to one or more variables as possible
+    # LUsensors = {'CTD SeaBird 911+':['Temp','CTD_SBE35T','Conductivity','Pressure'],
+    #              'Lachat QuikChem 8500 series 2':['NO3_plus_NO2','NO3','NO2','PO4','NH4','SiO2'],
+    #              'Shimadzu TOC-V':['DOC'],
+    #              'TNM-1 chemiluminescent detector assembly':['TDN'],
+    #              'Olympus BX51 epifluorescent microscope':['Bact']
+    #             }
     
     # These other sensors are for data I have not yet tackled, leave here for now
     # 'MOCNESS'
@@ -127,33 +129,35 @@ def main():
     # 'WetLabs ECOpuck (ChlF and Bp700)'
     # 'Submersible Underwater Nitrate Analyzer (SUNA)'
     # 'Aanderaa O2 optode'
-    
-    
-    # this will return the sensor given a possible variable, surely there is a better way to do this...
-    for idx,item in enumerate(df2.iterrows()):
-        oneVar = df2.loc[idx,'var_short_name']
-        sensor =  str([k for k, v in LUsensors.items() if oneVar in v])[2:-2]
-        if len(sensor): #only try and fill in if a sensor was found
-            df2.loc[idx,'var_sensor'] = str(sensor) #strip off the [] at the beginning/end of the list
+    # LUsensors = {}
+       
+    # # this will return the sensor given a possible variable, surely there is a better way to do this...
+    # for idx,item in enumerate(df2.iterrows()):
+    #     oneVar = df2.loc[idx,'var_short_name']
+    #     sensor =  str([k for k, v in LUsensors.items() if oneVar in v])[2:-2]
+    #     if len(sensor): #only try and fill in if a sensor was found
+    #         df2.loc[idx,'var_sensor'] = str(sensor) #strip off the [] at the beginning/end of the list
     
     #there are a few pieces of metadata that CMAP wants that will be easier to track in an Excel file -
     #make the file once, and then update as needed for future BCO-DMO datasets.
     #The keywords include cruises, and all possible names for a variable. I wonder if
     #CMAP has that information available in a way that can be searched?
-    # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
-    #to pull the sensor information from the file as well.
-    fName = 'CMAP_variableMetadata_additions.xlsx'
-    moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data')
+    #These are all one-offs...so it's rather hard to automate. I am coming to the idea it will be easier to manually annotate the files.
+    #Come back to this later.
+    
+    # # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
+    # #to pull the sensor information from the file as well.
+    # fName = 'CMAP_variableMetadata_additions.xlsx'
+    # moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data_pump')
    
-    #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
-    df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
-    # Discard the columns that acquired a suffix:
-    df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
+    # #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
+    # df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
+    # # Discard the columns that acquired a suffix:
+    # df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
     
     #these two are easy: just add them here
     df2.loc[:,('var_spatial_res')] = 'irregular'
     df2.loc[:, ('var_temporal_res')] = 'irregular'
-
 
     #metadata about the project    
     # finally gather up the dataset_meta_data: for now I just wrote the information here, I might setup in a separate text file later
@@ -184,7 +188,7 @@ def main():
     os.chdir(".")
     
     if os.path.isdir(folder):
-        print("Data will go here: %s" % (os.getcwd()) + '\\' + folder)
+        print("Data will go here: %s" % (os.getcwd()) + '\\' + folder + '\\' + exportFile)
     else:
         os.mkdir(folder)
     
