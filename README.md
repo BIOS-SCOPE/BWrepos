@@ -4,6 +4,9 @@ This is private for now as I don't know if BCO-DMO is ready to have their code a
 Krista Longnecker
 
 Most recent comments at the top.
+### 16 July 2025
+The added metadata for the variables is a series of one-offs. It might make sense to manually add the details as each file is different.
+
 ### 15 July 2025
 Working on the pump data (with 'Depth' and 'Depth_m' appearing as variables...dealt with that), using a second script (```convert_pumpData.py```). \
 - [ ] need to sort out metadata about variables (right now it only works for the discrete file)
