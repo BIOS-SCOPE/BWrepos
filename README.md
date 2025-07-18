@@ -4,13 +4,17 @@ This is private for now as I don't know if BCO-DMO is ready to have their code a
 Krista Longnecker
 
 Most recent comments at the top.
+### 18 July 2025
+Set up three scripts that actually convert the BCO-DMO data into the CMAP format, one script for each group (Carlson, Close, Blanco-Bercial/Maas). Those scripts are called by a Jupyter notebook, with the end result of the Excel files (one Excel file per dataset). 
+- [ ] get permissions to submit these to CMAP
+
 ### 16 July 2025
 The added metadata for the variables is a series of one-offs. It might make sense to manually add the details as each file is different.
 
 ### 15 July 2025
 Working on the pump data (with 'Depth' and 'Depth_m' appearing as variables...dealt with that), using a second script (```convert_pumpData.py```). \
-- [ ] need to sort out metadata about variables (right now it only works for the discrete file)
-- [ ] the zoop data will require parsing out names and merging the sample rows with the separate metadata file
+- [x] need to sort out metadata about variables (right now it only works for the discrete file)
+- [x] the zoop data will require parsing out names and merging the sample rows with the separate metadata file
 
 ### 13 July 2025
 Change to using ```convert.py``` to a script, but now I realize that even within BIOS-SCOPE the differnt data files all have super different formats so this is not going to be easily scripted. Right now this works for the discrete data file, but the zooplankton group has a different format and presumably the particle data will also be different.
