@@ -1,9 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # convert
 # Krista Longnecker, 13 July 2025
-# Run this after running getBCODMOinfo.ipynb\
+# Run this after running getBCODMOinfo.ipynb
 # This script will convert the BCO-DMO json file into the format required by CMAP
 # Work on the input for one file, with the end result as one Excel file; will only end up here if the data 
 # file is a CSV file
@@ -17,6 +13,7 @@ import json
 import re
 import sys
 import pdb
+from datetime import date
 from frictionless import describe, Package
 
 # Make a function that searches for bcodmo:name and returns bcodmo:description and bcodmo:units
@@ -52,7 +49,6 @@ def main():
     exportFile = re.split('/',data_url).pop().replace('.csv','')
 
     #super easy to work with the CSV file once I have the URL
-    #pdb.set_trace()
     bcodmo = pd.read_csv(data_url,na_values = ['nd']) #now I have NaN...but they get dropped when writing the file
         
     # Required variables are time, lat, lon, depth
@@ -166,7 +162,7 @@ def main():
         'dataset_short_name': ['BIOSSCOPE_v1'],
         'dataset_long_name': ['BIOS-SCOPE_' + exportFile],
         'dataset_version': ['1.0'],
-        'dataset_release_date': ['2025-06-25'],
+        'dataset_release_date': [date.today()],
         'dataset_make': ['observation'],
         'dataset_source': ['Hilary Close, University of Miami Rosenstiel School of Marine and Atmospheric Science'],
         'dataset_distributor': ['Hilary Close, University of Miami Rosenstiel School of Marine and Atmospheric Science'],
@@ -180,7 +176,7 @@ def main():
     #get the list of cruise names from the bcodmo data file
     t = pd.DataFrame(bcodmo['Cruise'].unique())
     t.columns = ['cruise_names']
-    df3 = pd.concat([df3,t],axis=1,ignore_index = True)
+    df3 = pd.concat([df3,t],axis=1)
       
     #export the result as an Excel file with three tabs
     #make the data folder if it is not already there (it is in .gitignore, so it will not end up at GitHub)

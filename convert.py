@@ -1,12 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # convert
 # Krista Longnecker, 13 July 2025
-# Run this after running getBCODMOinfo.ipynb\
+# Run this after running getBCODMOinfo.ipynb
 # This script will convert the BCO-DMO json file into the format required by CMAP
 # Work on the input for one file, with the end result as one Excel file; will only end up here if the data 
 # file is a CSV file
+# This script works on the discrete data file (the first one I wrote)
 
 #some of these are residual from assembling the data file, keep for now.
 import pandas as pd
@@ -16,6 +13,7 @@ import json
 import re
 import sys
 import pdb
+from datetime import date
 from frictionless import describe, Package
 
 # Make a function that searches for bcodmo:name and returns bcodmo:description and bcodmo:units
@@ -38,20 +36,17 @@ def main():
     '''
     Go through the steps needed to go from BCO-DMO details in json file and end with output that is an Excel file
     '''
-    #pdb.set_trace()
-    idx = int(sys.argv[1])
-    
+    idx_json = int(sys.argv[1])
     #to do: figure out a better way to do this so I am not reading in the json file every time
     biosscope = Package('datapackage.json')
     
-    data_url = biosscope.resources[idx].path
-    md = biosscope.resources[idx].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
+    data_url = biosscope.resources[idx_json].path
+    md = biosscope.resources[idx_json].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
 
     #make a short name out of the data_url, will use this as part of the name for the final Excel file 
     exportFile = re.split('/',data_url).pop().replace('.csv','')
 
     #super easy to work with the CSV file once I have the URL
-    #pdb.set_trace()
     bcodmo = pd.read_csv(data_url,na_values = ['nd']) #now I have NaN...but they get dropped when writing the file
         
     # Required variables are time, lat, lon, depth
@@ -134,7 +129,8 @@ def main():
     # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
     #to pull the sensor information from the file as well.
     fName = 'CMAP_variableMetadata_additions.xlsx'
-    moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data_discrete')
+    sheetName = exportFile[0:31] #Excel limits the length of the sheet name
+    moreMD = pd.read_excel(fName,sheet_name = sheetName)
    
     #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
     df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
@@ -153,13 +149,13 @@ def main():
         'dataset_short_name': ['BIOSSCOPE_v1'],
         'dataset_long_name': ['BIOS-SCOPE ' + exportFile],
         'dataset_version': ['1.0'],
-        'dataset_release_date': ['2025-06-25'],
+        'dataset_release_date': [date.today()],
         'dataset_make': ['observation'],
         'dataset_source': ['Craig Carlson, Bermuda Institute of Ocean Sciences'],
         'dataset_distributor': ['Craig Carlson, Bermuda Institute of Ocean Sciences'],
         'dataset_acknowledgement': ['We thank the BIOS-SCOPE project team and the BATS team for assistance with sample collection, processing, and analysis. The efforts of the captains, crew, and marine technicians of the R/V Atlantic Explorer are a key aspect of the success of this project. This work supported by funding from the Simons Foundation International.'],
         'dataset_history': [''],
-        'dataset_description': ['This dataset includes analyses from Niskin bottle samples collected on R/V Atlantic Explorer cruises as part of the BIOS-SCOPE campaign in the time period from 2016 until 2025. Included are CTD data, and survey biogeochemical samples including inorganic nutrients, particulate organic carbon and nitrogen, dissolved organic carbon, dissolved organic nitrogen, total dissolved amino acids, bacterial abundance and production.'],
+        'dataset_description': [biosscope.resources[idx_json].sources[0]['title']],
         'dataset_references': ['Carlson, C. A., Giovannoni, S., Liu, S., Halewood, E. (2025) BIOS-SCOPE survey biogeochemical data as collected on Atlantic Explorer cruises (AE1614, AE1712, AE1819, AE1916) from 2016 through 2019. Biological and Chemical Oceanography Data Management Office (BCO-DMO). (Version 1) Version Date 2021-10-17. doi:10.26008/1912/bco-dmo.861266.1 [25 June 2025]'],
         'climatology': [0]
         })
@@ -167,8 +163,9 @@ def main():
     #get the list of cruise names from the bcodmo data file
     t = pd.DataFrame(bcodmo['Cruise_ID'].unique())
     t.columns = ['cruise_names']
-    df3 = pd.concat([df3,t],axis=1,ignore_index = True)
-      
+    #df3 = pd.concat([df3,t],axis=1,ignore_index = True)
+    df3 = pd.concat([df3,t],axis=1)
+
     #export the result as an Excel file with three tabs
     #make the data folder if it is not already there (it is in .gitignore, so it will not end up at GitHub)
     folder = "data"

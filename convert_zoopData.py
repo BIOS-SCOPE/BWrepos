@@ -1,13 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # convert
 # Krista Longnecker, 13 July 2025
-# Run this after running getBCODMOinfo.ipynb\
+# Run this after running getBCODMOinfo.ipynb
 # This script will convert the BCO-DMO json file into the format required by CMAP
-# Work on the input for one file, with the end result as one Excel file; will only end up here if the data 
-# file is a CSV file
-#this script works on the pump data from the Close lab, RSMAS, University of Miami
+# this script works on the zooplankton data from BIOS, Leocadio Blanco-Bercial and Amy Maas
 
 #some of these are residual from assembling the data file, keep for now.
 import pandas as pd
@@ -17,6 +11,7 @@ import json
 import re
 import sys
 import pdb
+from datetime import date
 from frictionless import describe, Package
 
 # Make a function that searches for bcodmo:name and returns bcodmo:description and bcodmo:units
@@ -42,7 +37,6 @@ def main():
     '''
     Go through the steps needed to go from BCO-DMO details in json file and end with output that is an Excel file
     '''
-    #pdb.set_trace()
     idx_json = int(sys.argv[1])
     
     #to do: figure out a better way to do this so I am not reading in the json file every time
@@ -55,7 +49,6 @@ def main():
     exportFile = re.split('/',data_url).pop().replace('.csv','')
 
     #super easy to work with the CSV file once I have the URL
-    #pdb.set_trace()
     bcodmo = pd.read_csv(data_url,na_values = ['nd']) #now I have NaN...but they get dropped when writing the file
         
     # Required variables are time, lat, lon, depth
@@ -63,7 +56,6 @@ def main():
     
     # time --> CMAP requirement is this: #< Format  %Y-%m-%dT%H:%M:%S,  Time-Zone:  UTC,  example: 2014-02-28T14:25:55 >
     # Do this in two steps so I can check the output more easily
-    #no time available in particle data
     temp = bcodmo.copy()
     #pdb.set_trace()
     temp['date'] = pd.to_datetime(temp['ISO_DateTime_UTC'])
@@ -77,7 +69,7 @@ def main():
     #depth in the zooplankton data are a range from min to max, select a number in the middle
     df['depth'] = bcodmo['object_depth_max'] - bcodmo['object_depth_min']
 
-    #the object_id has the cruise information that will be needed later...pull that out
+    #the object_id has the cruise information that will be needed later...pull that out of object_id
     temp['Cruise'] = ''
     for i,item in temp.iterrows():
         c = re.split('_',temp.loc[i,'object_id'])
@@ -86,7 +78,6 @@ def main():
         temp.loc[i,'Cruise'] = oneC[-1]
     
     # all remaining columns in bcodmo can be considered data
-    #remember: bcodmo_trim will have the list of variables that I will use later to get metadata about the variables
     #for the zoop data - keep min and max depth
     bcodmo_trim = bcodmo.drop(columns=['object_lat', 'object_lon'])
     nVariables = bcodmo_trim.shape[1] #remember in Python indexing starts with 0 (rows, 1 is the columns)
@@ -103,77 +94,45 @@ def main():
     
     #the variables I need to search for are here: bcodmo_trim.columns, put them in the first column
     df2['var_short_name'] = bcodmo_trim.columns
-    #Need the information from BCO-DMO to fill in the metadata about the variables.
-    #md = biosscope.resources[idx].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
         
     #there is most certainly a better way to do this, but I understand this option
     for idx,item in enumerate(df2.iterrows()):
-        a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
-        df2.loc[idx,'var_long_name'] = a
-        df2.loc[idx,'var_unit'] = b
-        #print(a)
-    
-    #for sensor I will need a lookup table as the information at BCO-DMO is not formatted to provide this. There is some
-    #sensor information, but I don't see how it is linked directly to specific measured variables, and more than one variable can match a given sensor.
-    #Later note, probably easier to put this into Excel (see notes below about the CMAP keywords that are required)
-    
-    # #13 options listed at BCO-DMO:manually assign to one or more variables as possible
-    # LUsensors = {'CTD SeaBird 911+':['Temp','CTD_SBE35T','Conductivity','Pressure'],
-    #              'Lachat QuikChem 8500 series 2':['NO3_plus_NO2','NO3','NO2','PO4','NH4','SiO2'],
-    #              'Shimadzu TOC-V':['DOC'],
-    #              'TNM-1 chemiluminescent detector assembly':['TDN'],
-    #              'Olympus BX51 epifluorescent microscope':['Bact']
-    #             }
-    
+        #somehow one variable at BCO-DMO does not have a bcodmo:unit option (it's unitless, but still)
+        if df2.loc[idx,'var_short_name'] != 'object_id':
+            a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
+            df2.loc[idx,'var_long_name'] = a
+            df2.loc[idx,'var_unit'] = b
+        elif df2.loc[idx,'var_short_name'] == 'object_id':
+            df2.loc[idx,'var_long_name'] = 'Particle identifier'
+            df2.loc[idx,'var_unit'] = 'unitless'
+      
     # These other sensors are for data I have not yet tackled, leave here for now
     # 'MOCNESS'
     # 'Reeve net'
     
-    # 'CEC 440HA combustion analyzer'
-    
-    # ##glider, not yet ready, so hold off one these
-    # 'Slocum G2 glbider'
-    # 'WetLabs ECOpuck (ChlF and Bp700)'
-    # 'Submersible Underwater Nitrate Analyzer (SUNA)'
-    # 'Aanderaa O2 optode'
-    # LUsensors = {}
-       
-    # # this will return the sensor given a possible variable, surely there is a better way to do this...
-    # for idx,item in enumerate(df2.iterrows()):
-    #     oneVar = df2.loc[idx,'var_short_name']
-    #     sensor =  str([k for k, v in LUsensors.items() if oneVar in v])[2:-2]
-    #     if len(sensor): #only try and fill in if a sensor was found
-    #         df2.loc[idx,'var_sensor'] = str(sensor) #strip off the [] at the beginning/end of the list
-    
     #there are a few pieces of metadata that CMAP wants that will be easier to track in an Excel file -
     #make the file once, and then update as needed for future BCO-DMO datasets.
-    #The keywords include cruises, and all possible names for a variable. I wonder if
-    #CMAP has that information available in a way that can be searched?
-    #These are all one-offs...so it's rather hard to automate. I am coming to the idea it will be easier to manually annotate the files.
-    #Come back to this later.
-    
-    # # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
-    # #to pull the sensor information from the file as well.
-    # fName = 'CMAP_variableMetadata_additions.xlsx'
-    # moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data_pump')
+    #The keywords include cruises, and all possible names for a variable.
+    # There are so many CMAP specific options that it is easier to run this 2x and add the custom pieces to a new sheet in the Excel file
+    fName = 'CMAP_variableMetadata_additions.xlsx'
+    sheetName = exportFile[0:31] #Excel limits the length of the sheet name
+    moreMD = pd.read_excel(fName,sheet_name = sheetName)
    
-    # #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
-    # df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
-    # # Discard the columns that acquired a suffix:
-    # df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
+    #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
+    df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
+    # Discard the columns that acquired a suffix:
+    df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
     
     #these two are easy: just add them here
     df2.loc[:,('var_spatial_res')] = 'irregular'
     df2.loc[:, ('var_temporal_res')] = 'irregular'
 
-    #metadata about the project    
-    # finally gather up the dataset_meta_data: for now I just wrote the information here, I might setup in a separate text file later
-    #pdb.set_trace()
+    # finally gather up the dataset_meta_data: into a third data frame (df3)
     df3 = pd.DataFrame({
         'dataset_short_name': ['BIOSSCOPE_v1'],
         'dataset_long_name': ['BIOS-SCOPE_' + exportFile],
         'dataset_version': ['1.0'],
-        'dataset_release_date': ['2025-06-25'],
+        'dataset_release_date': [date.today()],
         'dataset_make': ['observation'],
         'dataset_source': ['Leocadio Blanco-Bercial (Bermuda Institute of Ocean Sciences)'],
         'dataset_distributor': ['Leocadio Blanco-Bercial (Bermuda Institute of Ocean Sciences)'],
@@ -185,10 +144,9 @@ def main():
         })
     
     #get the list of cruise names from the bcodmo data file
-    #pdb.set_trace()
     t = pd.DataFrame(temp['Cruise'].unique()) #I put the cruise-only information in temp
     t.columns = ['cruise_names']
-    df3 = pd.concat([df3,t],axis=1,ignore_index = True)
+    df3 = pd.concat([df3,t],axis=1)
       
     #export the result as an Excel file with three tabs
     #make the data folder if it is not already there (it is in .gitignore, so it will not end up at GitHub)
@@ -205,9 +163,6 @@ def main():
     with pd.ExcelWriter(fName_CMAP) as writer:
         for sheet_name, data in dataset_names.items():
             data.to_excel(writer, sheet_name=sheet_name, index=False)
-
-
-
 
 #######################################
 #                                     #
