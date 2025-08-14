@@ -1,9 +1,11 @@
 # BWrepos
 Scripting access to transfer data from one repository to another\
-This is private for now as I don't know if BCO-DMO is ready to have their code available yet.\
 Krista Longnecker
 
 Most recent comments at the top.
+### 14 August 2025
+Make repository public.
+
 ### 18 July 2025
 Set up three scripts that actually convert the BCO-DMO data into the CMAP format, one script for each group (Carlson, Close, Blanco-Bercial/Maas). Those scripts are called by a Jupyter notebook, with the end result of the Excel files (one Excel file per dataset). 
 - [ ] get permissions to submit these to CMAP
