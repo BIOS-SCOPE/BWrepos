@@ -3,6 +3,9 @@ Scripting access to transfer data from one repository to another\
 Krista Longnecker
 
 Most recent comments at the top.
+### 18 August 2025
+Bottle file is ready and passes QC, next up will be the pump data
+
 ### 14 August 2025
 Make repository public.
 
