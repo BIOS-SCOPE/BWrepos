@@ -4,7 +4,7 @@ Krista Longnecker
 
 Most recent comments at the top.
 ### 20 August 2025
-Bottle file and pump datasets (4) have been submitted to CMAP; next up is metabolomics data and zoop data
+Bottle file and pump datasets (4) have been submitted to CMAP; also finished up the code to get the targeted metabolomics data from MetaboLights; next up is zoop data
 
 ### 18 August 2025
 Bottle file is ready and passes QC, next up will be the pump data
