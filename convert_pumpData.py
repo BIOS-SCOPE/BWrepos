@@ -1,4 +1,5 @@
 # Krista Longnecker, 13 July 2025
+# updated 18 August 2025
 # Run this after running getBCODMOinfo.ipynb
 # This script will convert the BCO-DMO json file into the format required by CMAP
 # Work on the input for one file, with the end result as one Excel file; will only end up here if the data 
@@ -30,6 +31,18 @@ def getDetails(md,bcodmo_name):
 
     return description, units
 
+#set up a function to remove <p> and </p> from the beginning and end, occurs multiple times
+def clean(a):
+    """Some of the descriptions have added markers, remove them using this function"""
+    if a.startswith('<p>'):
+        toStrip = '[</p><p>]'
+        clean = re.sub(toStrip,'',a)
+    elif a.endswith('.'):
+        clean = re.sub('\.$','',a)
+    else:
+        clean = a
+    
+    return clean
 
 
 def main():
@@ -59,7 +72,7 @@ def main():
     #no time available in particle data
     temp = bcodmo.copy()
     temp['date'] = pd.to_datetime(temp['Date'])
-    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S")
+    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S" + "+00:00")
     df['time'] = temp['date_cmap']
     
     # lat (-90 to 90) and lon (-180 to 180); use variable names at BCO-DMO
@@ -91,49 +104,18 @@ def main():
     
     #the variables I need to search for are here: bcodmo_trim.columns, put them in the first column
     df2['var_short_name'] = bcodmo_trim.columns
-    #Need the information from BCO-DMO to fill in the metadata about the variables.
-    #md = biosscope.resources[idx].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
         
     #there is most certainly a better way to do this, but I understand this option
     for idx,item in enumerate(df2.iterrows()):
         a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
         #pdb.set_trace()
-        df2.loc[idx,'var_long_name'] = a
+        df2.loc[idx,'var_long_name'] = clean(a)
         df2.loc[idx,'var_unit'] = b
-        #print(a)
     
-    #for sensor I will need a lookup table as the information at BCO-DMO is not formatted to provide this. There is some
-    #sensor information, but I don't see how it is linked directly to specific measured variables, and more than one variable can match a given sensor.
-    #Later note, probably easier to put this into Excel (see notes below about the CMAP keywords that are required)
-    
-    # #13 options listed at BCO-DMO:manually assign to one or more variables as possible
-    # LUsensors = {'CTD SeaBird 911+':['Temp','CTD_SBE35T','Conductivity','Pressure'],
-    #              'Lachat QuikChem 8500 series 2':['NO3_plus_NO2','NO3','NO2','PO4','NH4','SiO2'],
-    #              'Shimadzu TOC-V':['DOC'],
-    #              'TNM-1 chemiluminescent detector assembly':['TDN'],
-    #              'Olympus BX51 epifluorescent microscope':['Bact']
-    #             }
-    
-    # These other sensors are for data I have not yet tackled, leave here for now
-    # 'MOCNESS'
-    # 'Reeve net'
-    
-    # 'CEC 440HA combustion analyzer'
-    
-    # ##glider, not yet ready, so hold off one these
-    # 'Slocum G2 glbider'
-    # 'WetLabs ECOpuck (ChlF and Bp700)'
-    # 'Submersible Underwater Nitrate Analyzer (SUNA)'
-    # 'Aanderaa O2 optode'
-    # LUsensors = {}
+    #these two are easy: just add them here
+    df2.loc[:,('var_spatial_res')] = 'irregular'
+    df2.loc[:, ('var_temporal_res')] = 'irregular'
        
-    # # this will return the sensor given a possible variable, surely there is a better way to do this...
-    # for idx,item in enumerate(df2.iterrows()):
-    #     oneVar = df2.loc[idx,'var_short_name']
-    #     sensor =  str([k for k, v in LUsensors.items() if oneVar in v])[2:-2]
-    #     if len(sensor): #only try and fill in if a sensor was found
-    #         df2.loc[idx,'var_sensor'] = str(sensor) #strip off the [] at the beginning/end of the list
-    
     #there are a few pieces of metadata that CMAP wants that will be easier to track in an Excel file -
     #make the file once, and then update as needed for future BCO-DMO datasets.
     #The keywords include cruises, and all possible names for a variable. I wonder if
@@ -143,24 +125,23 @@ def main():
     
     # # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
     # #to pull the sensor information from the file as well.
-    # fName = 'CMAP_variableMetadata_additions.xlsx'
-    # moreMD = pd.read_excel(fName,sheet_name = 'vars_meta_data_pump')
+    fName = 'CMAP_variableMetadata_additions.xlsx'
+    sheetName = exportFile[0:31] #Excel limits the length of the sheet name
+    moreMD = pd.read_excel(fName,sheet_name = sheetName)
    
     # #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
-    # df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
+    df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
     # # Discard the columns that acquired a suffix:
-    # df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
+    df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
     
-    #these two are easy: just add them here
-    df2.loc[:,('var_spatial_res')] = 'irregular'
-    df2.loc[:, ('var_temporal_res')] = 'irregular'
+
 
     #metadata about the project    
     # finally gather up the dataset_meta_data: for now I just wrote the information here, I might setup in a separate text file later
     #pdb.set_trace()
     df3 = pd.DataFrame({
-        'dataset_short_name': ['BIOSSCOPE_v1'],
-        'dataset_long_name': ['BIOS-SCOPE_' + exportFile],
+        'dataset_short_name': ['BS_' + exportFile], #filenames too long with BIOS-SCOPE in them
+        'dataset_long_name': ['BIOS-SCOPE ' + exportFile],
         'dataset_version': ['1.0'],
         'dataset_release_date': [date.today()],
         'dataset_make': ['observation'],

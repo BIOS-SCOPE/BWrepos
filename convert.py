@@ -32,6 +32,18 @@ def getDetails(md,bcodmo_name):
 
     return description, units
 
+#set up a function to remove <p> and </p> from the beginning and end, occurs multiple times
+def clean(a):
+    """Some of the descriptions have added markers, remove them using this function"""
+    if a.startswith('<p>'):
+        toStrip = '[</p><p>]'
+        clean = re.sub(toStrip,'',a)
+    elif a.endswith('.'):
+        clean = re.sub('\.$','',a)
+    else:
+        clean = a
+    
+    return clean
 
 
 def main():
@@ -58,9 +70,11 @@ def main():
     # Do this in two steps so I can check the output more easily
     temp = bcodmo.copy()
     #you have to change this to a string (.apply(str)) or else this cannot get converted to an Excel variable.
-    temp['date'] = pd.to_datetime(temp['ISO_DateTime_UTC']).apply(str)
+    #pdb.set_trace()
+    temp['date'] = pd.to_datetime(temp['ISO_DateTime_UTC'])
+    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S" + "+00:00")
     
-    df['time'] = temp['date']
+    df['time'] = temp['date_cmap']
     
     # lat (-90 to 90) and lon (-180 to 180); use variable names at BCO-DMO
     df['lat'] = bcodmo['Latitude']
@@ -85,13 +99,23 @@ def main():
     
     #the variables I need to search for are here: bcodmo_trim.columns, put them in the first column
     df2['var_short_name'] = bcodmo_trim.columns
-    #Need the information from BCO-DMO to fill in the metadata about the variables.
-    #md = biosscope.resources[idx].custom['bcodmo:parameters'] #this is a list, don't forget 'custom' (!!)
         
     #there is most certainly a better way to do this, but I understand this option
     for idx,item in enumerate(df2.iterrows()):
         a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
-        df2.loc[idx,'var_long_name'] = a
+        # var_unit has to be 50 characters or less...for now this only happens 1x, so manually edit
+        #pdb.set_trace()
+#         if b == 'microEinsteins per second per square meter (uE/m^2/sec)':
+#             #pdb.set_trace()
+#             b = 'microEinsteins per square meter per sec(μE/m2-sec)'
+#         elif b == 'cells times 100 million per kilogram (cells*10^8/kg)':
+#             b = 'cells times 100 million per kilogram'
+#         elif a == 'Temperature from SeaBird 35 CTD which has 8 second average taken at time of the bottle fire. This sensor has an accuracy of 0.0001C as compared to the standard profiling units which have an accuracy of 0.002C.':
+#             a = 'Temperature from SeaBird 35 CTD which has 8 second average taken at time of the bottle fire'
+        
+        #pdb.set_trace()
+        
+        df2.loc[idx,'var_long_name'] = clean(a)
         df2.loc[idx,'var_unit'] = b
         
     #these two are easy: just add them here
@@ -130,12 +154,24 @@ def main():
         df2 = df2.loc[:,metaVarColumns]
         
         
+    #There are some data columns that are empty because the variables are not included 
+    #in what is submitted to BCO-DMO. These need to be removed from the data file before 
+    #it is submitted to CMAP
+    #NO3, NO3_QF, NO2, NO2_QF, NH4, NH4_QF, SiO2, SiO2_QF, Phe
+    #The nutrients are measured by BATS and not submitted here, Phe has a conflicting peak and does not get reported.
+    toDelete = {'NO3', 'NO3_QF', 'NO2', 'NO2_QF', 'NH4', 'NH4_QF', 'SiO2', 'SiO2_QF', 'Phe'}
+    df.drop(columns = toDelete,inplace = True)
 
+    #also need to drop these rows from the metadata about the variables
+    #pdb.set_trace()
+    indices_to_drop = df2[df2['var_short_name'].isin(toDelete)].index
+    df2.drop(indices_to_drop, inplace=True)
+       
     #metadata about the project    
     # finally gather up the dataset_meta_data: for now I just wrote the information here, I might setup in a separate text file later
     #pdb.set_trace()
     df3 = pd.DataFrame({
-        'dataset_short_name': ['BIOSSCOPE_v1'],
+        'dataset_short_name': ['BIOSSCOPE_' + exportFile],
         'dataset_long_name': ['BIOS-SCOPE ' + exportFile],
         'dataset_version': ['1.0'],
         'dataset_release_date': [date.today()],

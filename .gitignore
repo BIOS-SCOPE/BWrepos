@@ -1,5 +1,5 @@
 #Keep data from getting uploaded to GitHub
-#Krista, 29 June 2025
+#Krista, 18 August 2025
 /data/
 /.ipynb_checkpoints
 /__pycache__

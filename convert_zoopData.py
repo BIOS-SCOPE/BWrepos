@@ -1,4 +1,5 @@
 # Krista Longnecker, 13 July 2025
+# updated 18 August 2025
 # Run this after running getBCODMOinfo.ipynb
 # This script will convert the BCO-DMO json file into the format required by CMAP
 # this script works on the zooplankton data from BIOS, Leocadio Blanco-Bercial and Amy Maas
@@ -55,11 +56,9 @@ def main():
     df = pd.DataFrame(columns=['time','lat','lon','depth'])
     
     # time --> CMAP requirement is this: #< Format  %Y-%m-%dT%H:%M:%S,  Time-Zone:  UTC,  example: 2014-02-28T14:25:55 >
-    # Do this in two steps so I can check the output more easily
     temp = bcodmo.copy()
-    #pdb.set_trace()
     temp['date'] = pd.to_datetime(temp['ISO_DateTime_UTC'])
-    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S")
+    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S" + "+00:00")
     df['time'] = temp['date_cmap']
     
     # lat (-90 to 90) and lon (-180 to 180); use variable names at BCO-DMO
@@ -97,7 +96,7 @@ def main():
         
     #there is most certainly a better way to do this, but I understand this option
     for idx,item in enumerate(df2.iterrows()):
-        #somehow one variable at BCO-DMO does not have a bcodmo:unit option (it's unitless, but still)
+        #somehow one variable at BCO-DMO does not have a bcodmo:unit option (object_id: it's unitless, but still)
         if df2.loc[idx,'var_short_name'] != 'object_id':
             a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
             df2.loc[idx,'var_long_name'] = a
@@ -106,9 +105,9 @@ def main():
             df2.loc[idx,'var_long_name'] = 'Particle identifier'
             df2.loc[idx,'var_unit'] = 'unitless'
       
-    # These other sensors are for data I have not yet tackled, leave here for now
-    # 'MOCNESS'
-    # 'Reeve net'
+    #these two are easy: just add them here
+    df2.loc[:,('var_spatial_res')] = 'irregular'
+    df2.loc[:, ('var_temporal_res')] = 'irregular'
     
     #there are a few pieces of metadata that CMAP wants that will be easier to track in an Excel file -
     #make the file once, and then update as needed for future BCO-DMO datasets.
@@ -123,14 +122,12 @@ def main():
     # Discard the columns that acquired a suffix:
     df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
     
-    #these two are easy: just add them here
-    df2.loc[:,('var_spatial_res')] = 'irregular'
-    df2.loc[:, ('var_temporal_res')] = 'irregular'
+
 
     # finally gather up the dataset_meta_data: into a third data frame (df3)
     df3 = pd.DataFrame({
-        'dataset_short_name': ['BIOSSCOPE_v1'],
-        'dataset_long_name': ['BIOS-SCOPE_' + exportFile],
+        'dataset_short_name': ['BIOSSCOPE_' + exportFile],
+        'dataset_long_name': ['BIOS-SCOPE ' + exportFile],
         'dataset_version': ['1.0'],
         'dataset_release_date': [date.today()],
         'dataset_make': ['observation'],
