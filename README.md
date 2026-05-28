@@ -14,7 +14,7 @@ Make repository public.
 
 ### 18 July 2025
 Set up three scripts that actually convert the BCO-DMO data into the CMAP format, one script for each group (Carlson, Close, Blanco-Bercial/Maas). Those scripts are called by a Jupyter notebook, with the end result of the Excel files (one Excel file per dataset). 
-- [ ] get permissions to submit these to CMAP
+- [x] get permissions to submit these to CMAP
 
 ### 16 July 2025
 The added metadata for the variables is a series of one-offs. It might make sense to manually add the details as each file is different.
