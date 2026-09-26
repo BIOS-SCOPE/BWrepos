@@ -2,5 +2,7 @@
 #Krista, 18 August 2025
 /data/
 /.ipynb_checkpoints
+/.git
 /__pycache__
 /oldFiles
+/venv
