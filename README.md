@@ -3,10 +3,15 @@ Scripting access to transfer data from one repository to another\
 Krista Longnecker
 
 Most recent comments at the top.
+### 28 September 2026
+For SeaBASS data:
+Working on the volume and biomass calculations for the discrete samples collected by Niskin bottles. 
+CAREFUL: volume_imaged_ml is per milliliter (obvious based on name), but volume has already been converted to Liter.
+
 ### 10 June 2026
 Picking this up again - start with data at SeaBASS...new format to deal with.
 - [ ] Deal with depth: have object depth (listed as depth) and measurement_depth in the header
-- [ ] also have different formats for different cruises
+- [x] also have different formats for different cruises
 
 ### 20 August 2025
 Bottle file and pump datasets (4) have been submitted to CMAP; also finished up the code to get the targeted metabolomics data from MetaboLights; next up is zoop data
