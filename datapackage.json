@@ -5,6 +5,11 @@
   "profile": "data-package",
   "sources": [
     {
+      "path": "http://lod.bco-dmo.org/id/dataset/1000939",
+      "title": "BIOS-SCOPE CTD data collected on Atlantic Explorer cruises to the Sargasso Sea from 2016 through 2025",
+      "doi": "10.26008/1912/bco-dmo.1000939.1"
+    },
+    {
       "path": "http://lod.bco-dmo.org/id/dataset/853440",
       "title": "ZooSCAN images of zooplankton collected during BATS MOCNESS tows during R/V Atlantic Explorer cruises AE1614, AE1712, AE1830, and AE1819 in the vicinity of the Bermuda Atlantic Time-series Study from 2016 to 2018",
       "doi": "10.26008/1912/bco-dmo.853440.1"
@@ -45,8 +50,417 @@
       "doi": "10.26008/1912/bco-dmo.964826.1"
     }
   ],
-  "created": "2025-07-04T20:04:34.870947Z",
+  "created": "2026-09-28T21:52:23.320997Z",
   "resources": [
+    {
+      "name": "1000939_v1_bios_scope_ctd",
+      "type": "table",
+      "sources": [
+        {
+          "path": "http://lod.bco-dmo.org/id/dataset/1000939",
+          "title": "BIOS-SCOPE CTD data collected on Atlantic Explorer cruises to the Sargasso Sea from 2016 through 2025",
+          "doi": "10.26008/1912/bco-dmo.1000939.1"
+        }
+      ],
+      "path": "https://datadocs.bco-dmo.org/file/p9xlk1msQGAVv7/1000939_v1_bios_scope_ctd.csv",
+      "scheme": "https",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:8e6d8a7b03ed06bada54032a1d931901e8934703107d95d1136b91c2341e10c3",
+      "bytes": 18937389,
+      "fields": 38,
+      "rows": 64619,
+      "schema": {
+        "fields": [
+          {
+            "name": "BATS_id",
+            "type": "integer"
+          },
+          {
+            "name": "cruise",
+            "type": "integer"
+          },
+          {
+            "name": "cast",
+            "type": "integer"
+          },
+          {
+            "name": "date",
+            "type": "date"
+          },
+          {
+            "name": "year",
+            "type": "integer"
+          },
+          {
+            "name": "month",
+            "type": "integer"
+          },
+          {
+            "name": "day",
+            "type": "integer"
+          },
+          {
+            "name": "hour",
+            "type": "number"
+          },
+          {
+            "name": "doy",
+            "type": "integer"
+          },
+          {
+            "name": "lat",
+            "type": "number"
+          },
+          {
+            "name": "lon",
+            "type": "number"
+          },
+          {
+            "name": "MLD_dens125",
+            "type": "number"
+          },
+          {
+            "name": "MLD_bvfrq",
+            "type": "number"
+          },
+          {
+            "name": "MLD_densT2",
+            "type": "number"
+          },
+          {
+            "name": "DCM",
+            "type": "number"
+          },
+          {
+            "name": "Season",
+            "type": "integer"
+          },
+          {
+            "name": "Sunrise",
+            "type": "string"
+          },
+          {
+            "name": "Sunset",
+            "type": "string"
+          },
+          {
+            "name": "par0",
+            "type": "number"
+          },
+          {
+            "name": "z_par_1pcnt",
+            "type": "number"
+          },
+          {
+            "name": "z_par_halfpcnt",
+            "type": "number"
+          },
+          {
+            "name": "z_par_tenthpcnt",
+            "type": "any"
+          },
+          {
+            "name": "pr",
+            "type": "integer"
+          },
+          {
+            "name": "de",
+            "type": "number"
+          },
+          {
+            "name": "te",
+            "type": "number"
+          },
+          {
+            "name": "co",
+            "type": "number"
+          },
+          {
+            "name": "sa",
+            "type": "number"
+          },
+          {
+            "name": "o2",
+            "type": "number"
+          },
+          {
+            "name": "bac",
+            "type": "number"
+          },
+          {
+            "name": "fluor",
+            "type": "number"
+          },
+          {
+            "name": "fluor_filt",
+            "type": "number"
+          },
+          {
+            "name": "par",
+            "type": "number"
+          },
+          {
+            "name": "par_est",
+            "type": "number"
+          },
+          {
+            "name": "th",
+            "type": "number"
+          },
+          {
+            "name": "sig0",
+            "type": "number"
+          },
+          {
+            "name": "rho",
+            "type": "number"
+          },
+          {
+            "name": "bvfrq",
+            "type": "number"
+          },
+          {
+            "name": "vertZone",
+            "type": "integer"
+          }
+        ]
+      },
+      "bcodmo:parameters": [
+        {
+          "bcodmo:name": "BATS_id",
+          "bcodmo:description": "Sample identification; identifies cruise and cast",
+          "bcodmo:datatype": "string",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "cruise",
+          "bcodmo:description": "BATS Cruise number",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "cast",
+          "bcodmo:description": "Cast Number",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "date",
+          "bcodmo:description": "Date of CTD cast reported in UTC",
+          "bcodmo:datatype": "date",
+          "bcodmo:units": "unitless",
+          "bcodmo:valueFormat": "%Y-%m-%d"
+        },
+        {
+          "bcodmo:name": "year",
+          "bcodmo:description": "Year of CTD cast",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "month",
+          "bcodmo:description": "Month of CTD cast",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "day",
+          "bcodmo:description": "Day of CTD cast",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "hour",
+          "bcodmo:description": "Hour of day of CTD cast",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "doy",
+          "bcodmo:description": "Day of year of CTD cast",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "day"
+        },
+        {
+          "bcodmo:name": "lat",
+          "bcodmo:description": "Latitude of CTD deployment; Positive is North",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "lon",
+          "bcodmo:description": "Longitude of CTD deployment; Negative is West",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decimal degrees"
+        },
+        {
+          "bcodmo:name": "MLD_dens125",
+          "bcodmo:description": "Mixed layer depth defined by surface density + 0.125 kg/m^3 (Suga, T., K. Motoki, Y. Aoki, and A. M. Macdonald (2004), The North Pacific climatology of winter mixed layer and mode waters, J. Phys. Oceanogr., 34, 3 – 22,10.1175/1520-0485(2004)034<0003:TNPCOW>2.0.CO;2)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "MLD_bvfrq",
+          "bcodmo:description": "Depth of 'active mixing' defined by buoyancy frequency (Morison, F., E. Harvey, G. Franzè and S. Menden-Deuer (2019). Storm-Induced Predator-Prey Decoupling Promotes Springtime Accumulation of North Atlantic Phytoplankton. Frontiers in Marine Science Volume 6 - 2019. DOI: 10.3389/fmars.2019.00608) and (Graff, J. R. and M. J. Behrenfeld (2018). Photoacclimation Responses in Subarctic Atlantic Phytoplankton Following a Natural Mixing-Restratification Event. Frontiers in Marine Science Volume 5 - 2018. DOI: 10.3389/fmars.2018.00209)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "MLD_densT2",
+          "bcodmo:description": "MLD from Thermal Expansion Coeff, and dT=0.2 deg C (Sprintall, J., and M. Tomczak (1992), Evidence of the barrier layer in the surface layer of the tropics, J. Geophys. Res., 97, 7305– 7316,10.1029/92JC00407)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "DCM",
+          "bcodmo:description": "Depth of chlorophyll maximum (from CTD fluorometer)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "Season",
+          "bcodmo:description": "Season designation (1 = mixed, 2  = spring, 3 = stratified, 4 = fall)",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        },
+        {
+          "bcodmo:name": "Sunrise",
+          "bcodmo:description": "description",
+          "bcodmo:datatype": "time",
+          "bcodmo:units": "units",
+          "bcodmo:valueFormat": "%H:%M"
+        },
+        {
+          "bcodmo:name": "Sunset",
+          "bcodmo:description": "description",
+          "bcodmo:datatype": "time",
+          "bcodmo:units": "units",
+          "bcodmo:valueFormat": "%H:%M"
+        },
+        {
+          "bcodmo:name": "par0",
+          "bcodmo:description": "Surface PAR value",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "microeinsteins per meter squared per second (uE/m2/s)"
+        },
+        {
+          "bcodmo:name": "z_par_1pcnt",
+          "bcodmo:description": "Depth of 1% light level",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "z_par_halfpcnt",
+          "bcodmo:description": "Depth of 0.5% light level",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "z_par_tenthpcnt",
+          "bcodmo:description": "Depth of 0.1% light level",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "pr",
+          "bcodmo:description": "Pressure (dbar)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "decibars (dbar)"
+        },
+        {
+          "bcodmo:name": "de",
+          "bcodmo:description": "Sample depth",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "meters"
+        },
+        {
+          "bcodmo:name": "te",
+          "bcodmo:description": "Temperature (ITS-90)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "degrees Celsius"
+        },
+        {
+          "bcodmo:name": "co",
+          "bcodmo:description": "Conductivity",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "S/m"
+        },
+        {
+          "bcodmo:name": "sa",
+          "bcodmo:description": "Salinity (psu)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "PSU"
+        },
+        {
+          "bcodmo:name": "o2",
+          "bcodmo:description": "Dissolved Oxygen",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "micromole per kilogram (umol/kg)"
+        },
+        {
+          "bcodmo:name": "bac",
+          "bcodmo:description": "Beam Attenuation Coefficient",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "reciprocal meters (1/m)"
+        },
+        {
+          "bcodmo:name": "fluor",
+          "bcodmo:description": "Fluorescence",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "relative fluorescence units (RFU)"
+        },
+        {
+          "bcodmo:name": "fluor_filt",
+          "bcodmo:description": "Fluorescence filtered (applies a 3rd order butterworth filter to the fluorometer profile)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "relative fluorescence units (RFU)"
+        },
+        {
+          "bcodmo:name": "par",
+          "bcodmo:description": "Photosynthetically Active Radiation (PAR)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "microeinsteins per meter squared per second (uE/m2/s)"
+        },
+        {
+          "bcodmo:name": "par_est",
+          "bcodmo:description": "Photosynthetically Active Radiation (PAR): fitted exponential profile",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "microeinsteins per meter squared per second (uE/m2/s)"
+        },
+        {
+          "bcodmo:name": "th",
+          "bcodmo:description": "Potential temperature as per UNESCO 1983 report",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "degree C (ITS-90)"
+        },
+        {
+          "bcodmo:name": "sig0",
+          "bcodmo:description": "Potential denisty relative to the reference pressure",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "kg/m^3"
+        },
+        {
+          "bcodmo:name": "rho",
+          "bcodmo:description": "Density of seawater",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "kg/m^3"
+        },
+        {
+          "bcodmo:name": "bvfrq",
+          "bcodmo:description": "Brunt-Vaisala Frequency squared (N^2)",
+          "bcodmo:datatype": "number",
+          "bcodmo:units": "s^-2"
+        },
+        {
+          "bcodmo:name": "vertZone",
+          "bcodmo:description": "Vertical Zone designation (see description in Curry et al. 2026)",
+          "bcodmo:datatype": "integer",
+          "bcodmo:units": "unitless"
+        }
+      ]
+    },
     {
       "name": "zooscan_images_bats_ae1614",
       "type": "file",

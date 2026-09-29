@@ -1,11 +1,9 @@
 # Krista Longnecker, 13 July 2025
 # Updating 17 August 2025 to fine tune this script
+# Updating 28 September 2026 to work on the CTD data
 # Run this after running getBCODMOinfo.ipynb
 # This script will convert the BCO-DMO json file into the format required by CMAP
-# Work on the input for one file, with the end result as one Excel file; will only end up here if the data 
-# file is a CSV file
-# This script works on the discrete data file (the first one I wrote)
-
+# This script only works on the CTD data file...which has some different columns
 
 #some of these are residual from assembling the data file, keep for now.
 import pandas as pd
@@ -70,30 +68,39 @@ def main():
     # Do this in two steps so I can check the output more easily
     temp = bcodmo.copy()
     #you have to change this to a string (.apply(str)) or else this cannot get converted to an Excel variable.
-    pdb.set_trace()
-    temp['date'] = pd.to_datetime(temp['ISO_DateTime_UTC'])
-    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S" + "+00:00")
+    #CTD data have a different format for time (hence the unique *py file)
+    temp['date'] = pd.to_datetime({
+            'year': temp['year'],  
+            'month': temp['month'],
+            'day': temp['day'],
+            'hour': temp['hour']
+        })
     
+    temp['date_cmap'] = temp['date'].dt.strftime("%Y-%m-%dT%H:%M:%S" + "+00:00")    
     df['time'] = temp['date_cmap']
     
     # lat (-90 to 90) and lon (-180 to 180); use variable names at BCO-DMO
-    df['lat'] = bcodmo['Latitude']
-    df['lon'] = bcodmo['Longitude']  #BCO-DMO already has this as negative
-    df['depth'] = bcodmo['Depth']
+    df['lat'] = bcodmo['lat']
+    df['lon'] = bcodmo['lon']  #BCO-DMO already has this as negative
+    df['depth'] = bcodmo['de']
     
     # all remaining columns in bcodmo can be considered data
     #remember: bcodmo_trim will have the list of variables that I will use later to get metadata about the variables
-    bcodmo_trim = bcodmo.drop(columns=['Latitude', 'Longitude', 'Depth'])
+    bcodmo_trim = bcodmo.drop(columns=['lat', 'lon', 'de'])
     nVariables = bcodmo_trim.shape[1] #remember in Python indexing starts with 0 (rows, 1 is the columns)
     # and then add to the datafile I am assembling (essentially re-order columns
     df = pd.concat([df, bcodmo_trim], axis=1)
+    
+    # need to prepend the 'AE' string as these cruises are just numbers
+    df['cruise'] = 'AE' + df['cruise'].astype(str)
        
-    # work on the second sheet: metadata about the variables; use the CMAP dataset template to setup the dataframe so I get the column headers right
+    # work on the second sheet: metadata about the variables; 
+    #use the CMAP dataset template to setup the dataframe so I get the column headers right
     templateName = 'datasetTemplate.xlsx'
     sheet_name = 'vars_meta_data'
     vars = pd.read_excel(templateName, sheet_name=sheet_name)
     metaVarColumns = vars.columns.tolist()
-    #cols = vars.columns.tolist()
+
     #df2 will be the dataframe with the metadata about the variables, set it up empty here
     df2 = pd.DataFrame(columns=metaVarColumns,index = pd.RangeIndex(start=0,stop=nVariables)) #remember, Python is 0 indexed
     
@@ -104,17 +111,6 @@ def main():
     for idx,item in enumerate(df2.iterrows()):
         a,b = getDetails(md,df2.loc[idx,'var_short_name']) #getDetails is the function I wrote (see above)
         # var_unit has to be 50 characters or less...for now this only happens 1x, so manually edit
-        #pdb.set_trace()
-#         if b == 'microEinsteins per second per square meter (uE/m^2/sec)':
-#             #pdb.set_trace()
-#             b = 'microEinsteins per square meter per sec(μE/m2-sec)'
-#         elif b == 'cells times 100 million per kilogram (cells*10^8/kg)':
-#             b = 'cells times 100 million per kilogram'
-#         elif a == 'Temperature from SeaBird 35 CTD which has 8 second average taken at time of the bottle fire. This sensor has an accuracy of 0.0001C as compared to the standard profiling units which have an accuracy of 0.002C.':
-#             a = 'Temperature from SeaBird 35 CTD which has 8 second average taken at time of the bottle fire'
-        
-        #pdb.set_trace()
-        
         df2.loc[idx,'var_long_name'] = clean(a)
         df2.loc[idx,'var_unit'] = b
         
@@ -126,18 +122,15 @@ def main():
     #make the file once, and then update as needed for future BCO-DMO datasets.
     #The keywords include cruises, and all possible names for a variable. I wonder if
     #CMAP has that information available in a way that can be searched?
-    # Note that I made the Excel file after I started down this rabbit hole with the sensors. It will probably make sense
-    #to pull the sensor information from the file as well.
     fName = 'CMAP_variableMetadata_additions.xlsx'
     sheetName = exportFile[0:31] #Excel limits the length of the sheet name
     moreMD = pd.read_excel(fName,sheet_name = sheetName)
    
     #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
-    df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',))
+    df2 = moreMD.merge(df2[['var_short_name','var_keywords']],on='var_short_name',how='right',suffixes=('', '_td',)) #was
     # Discard the columns that acquired a suffix:
     df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
     
-
     #if moreMD is empty add the details to the CMAP_variableMetdata_additions.xlsx file so I can fill in the information
     if len(moreMD)==0:
         with pd.ExcelWriter(fName, engine='openpyxl', mode='a',if_sheet_exists = 'replace') as writer:  
@@ -146,24 +139,20 @@ def main():
         #otherwise merge the information from moreMD into df2
         #suffixes are added to column name to keep them separate; '' adds nothing while '_td' adds _td that can get deleted next
         #update to remove var_sensor as that is now in the Excel file with the metadata details
-        df2 = moreMD.merge(df2[['var_short_name','var_long_name','var_unit']],on='var_short_name',how='left',suffixes=('_td', '',))
-        
+        #df2 = moreMD.merge(df2[['var_short_name','var_long_name','var_unit']],on='var_short_name',how='left',suffixes=('_td', '',)) #was
+        df2 = moreMD.merge(df2[['var_short_name','var_long_name','var_unit']],on='var_short_name',how='left',suffixes=('', '_td',)) #flip 9/29/2026
+        #pdb.set_trace()
         # Discard the columns that acquired a suffix:
         df2 = df2[[c for c in df2.columns if not c.endswith('_td')]]
         #reorder the result to match the expected order        
         df2 = df2.loc[:,metaVarColumns]
         
         
-    #There are some data columns that are empty because the variables are not included 
-    #in what is submitted to BCO-DMO. These need to be removed from the data file before 
-    #it is submitted to CMAP
-    #NO3, NO3_QF, NO2, NO2_QF, NH4, NH4_QF, SiO2, SiO2_QF, Phe
-    #The nutrients are measured by BATS and not submitted here, Phe has a conflicting peak and does not get reported.
-    toDelete = {'NO3', 'NO3_QF', 'NO2', 'NO2_QF', 'NH4', 'NH4_QF', 'SiO2', 'SiO2_QF', 'Phe'}
+    #There are some data columns that can be removed from the data file before data are submitted to CMAP
+    toDelete = {'BATS_id','date','year','month','day','hour','doy','fluor_filt','par_est','z_par_tenthpcnt'}
     df.drop(columns = toDelete,inplace = True)
 
     #also need to drop these rows from the metadata about the variables
-    #pdb.set_trace()
     indices_to_drop = df2[df2['var_short_name'].isin(toDelete)].index
     df2.drop(indices_to_drop, inplace=True)
        
@@ -181,12 +170,13 @@ def main():
         'dataset_acknowledgement': ['We thank the BIOS-SCOPE project team and the BATS team for assistance with sample collection, processing, and analysis. The efforts of the captains, crew, and marine technicians of the R/V Atlantic Explorer are a key aspect of the success of this project. This work supported by funding from the Simons Foundation International.'],
         'dataset_history': [''],
         'dataset_description': [biosscope.resources[idx_json].sources[0]['title']],
-        'dataset_references': ['Carlson, C. A., Giovannoni, S., Liu, S., Halewood, E. (2025) BIOS-SCOPE survey biogeochemical data as collected on Atlantic Explorer cruises (AE1614, AE1712, AE1819, AE1916) from 2016 through 2019. Biological and Chemical Oceanography Data Management Office (BCO-DMO). (Version 1) Version Date 2021-10-17. doi:10.26008/1912/bco-dmo.861266.1 [25 June 2025]'],
+        'dataset_references': ['BIOS-SCOPE/data_pipeline: BIOS-SCOPE data processing pipeline version 1.0 (Version 1.0) [Computer software]. Zenodo. https://doi.org/10.5281/ZENODO.21813372'],
         'climatology': [0]
         })
     
     #get the list of cruise names from the bcodmo data file
-    t = pd.DataFrame(bcodmo['Cruise_ID'].unique())
+    #t = pd.DataFrame(bcodmo['cruise'].unique())
+    t = t = pd.DataFrame(df['cruise'].unique()) #use this - edited cruise to prepend AE to the cruise names
     t.columns = ['cruise_names']
     #df3 = pd.concat([df3,t],axis=1,ignore_index = True)
     df3 = pd.concat([df3,t],axis=1)
